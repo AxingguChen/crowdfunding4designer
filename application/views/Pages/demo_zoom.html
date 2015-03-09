@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='js/jquery-2.1.0.min.js'></script>
+	<script src='js/jquery.elevatezoom.js'></script>
+</head>
+<body>
+
+<img id="zoom_01" src='img/zoom_images/small/image1.png' data-zoom-image="img/zoom_images/large/image1.jpg"/>
+<img id="zoom_02" src='img/zoom_images/small/image2.png' data-zoom-image="img/zoom_images/large/image2.jpg"/>
+<img id="zoom_03" src='img/zoom_images/small/image3.png' data-zoom-image="img/zoom_images/large/image3.jpg"/>
+<img id="zoom_04" src='img/zoom_images/small/image4.png' data-zoom-image="img/zoom_images/large/image4.jpg"/>
+
+
+<script>
+    $('#zoom_01').elevateZoom({
+    zoomType: "inner",
+cursor: "crosshair",
+zoomWindowFadeIn: 500,
+zoomWindowFadeOut: 750
+   }); 
+    $('#zoom_02').elevateZoom({
+        zoomType: "inner",
+    cursor: "crosshair",
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 750
+       }); 
+    $('#zoom_03').elevateZoom({
+        zoomType: "inner",
+    cursor: "crosshair",
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 750
+       }); 
+    $('#zoom_04').elevateZoom({
+        zoomType: "inner",
+    cursor: "crosshair",
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 750
+       }); 
+</script>
+</body>
+</html>
