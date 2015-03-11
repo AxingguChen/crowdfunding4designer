@@ -27,6 +27,10 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- Twitter Bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>		
 		<!-- jquery.fancybox  -->
         <link rel="stylesheet" href="css/jquery.fancybox.css">
 		<!-- animate -->
@@ -40,8 +44,6 @@
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
-        <script src="js/jquery-1.2.6.min.js" type="text/javascript"></script> 
-		<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
         <script src="js/project.js"></script>
 		<!-- Image Zoom -->
 		
@@ -206,202 +208,78 @@
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h2>Photos</h2>
+						<h2>@title</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
-					<div class="sec-sub-title text-center">
-						<p>@title</p>
-						<p>@desciption</p>
-						<p>@round</p>
-						<p>@price</p>
-						
+					<!-- start of row -->
+					<div class="row">
 					
+						<div class="project-wrapper col-md-5">
+							<figure class="mix work-item-project">
+							<img id="zoom_01" src='img/zoom_images/small/image1.png' data-zoom-image="img/zoom_images/large/image1.jpg"/>
+							</figure>
+			
+							<script>
+								$('#zoom_01').elevateZoom({
+							    zoomType: "inner",
+							cursor: "crosshair",
+							scrollZoom: true,
+							zoomWindowFadeIn: 500,
+							zoomWindowFadeOut: 750
+							   }); 
+								</script>	
+							 
+							
+						</div>
+					
+						<div class="text-center col-md-7">
+							<br/>
+							<p>@desciption</p>
+							<p>@round</p>
+							<p>@price</p>
+							<div class="btn-group">
+							<div class="btn-group">
+						            <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle">size<span class="caret"></span></button>
+						            <ul class="dropdown-menu">
+						                <li><a href="#">xs</a></li>
+						                <li><a href="#">s</a></li>
+						                <li><a href="#">m</a></li>
+						                <li><a href="#">l</a></li>
+						                <li><a href="#">xl</a></li>
+						                <li><a href="#">xxl</a></li>
+						                <li><a href="#">xxxl</a></li>
+						                <li class="divider"></li>
+						                <li><a href="#">xxxxl</a></li>
+						            </ul> 
+						        </div>
+						    </div><br/><br/><br/>
+						        <button type="button" class="btn btn-success">Buy</button>
+						        <button type="button" class="btn btn-warning">Add to Cart</button>
+						</div>
+							
+					        
+							
+					</div>
+					<!-- end of row -->
+					<br/>
 					<div class="progress">
 					    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
 					      70% Complete
 					    </div>
-					  </div>
-					
-					
-					
-					
 					</div>
+					
 				</div>
 			</div>
-			
-			
-			<div class="project-wrapper">
-				<figure class="mix work-item">
-				<img id="zoom_01" src='img/zoom_images/small/image1.png' data-zoom-image="img/zoom_images/large/image1.jpg"/>
-				</figure>
-
-				<script>
-					$('#zoom_01').elevateZoom({
-				    zoomType: "inner",
-				cursor: "crosshair",
-				scrollZoom: true,
-				zoomWindowFadeIn: 500,
-				zoomWindowFadeOut: 750
-				   }); 
-					</script>	
-				    
-
-				
-				<figure class="mix work-item">
-					<img id="zoom_02" src='img/zoom_images/small/image2.png' data-zoom-image="img/zoom_images/large/image2.jpg"/>
-				</figure>
-				<script>
-				$('#zoom_02').elevateZoom({
-				    zoomType: "inner",
-				cursor: "crosshair",
-				zoomWindowFadeIn: 500,
-				zoomWindowFadeOut: 750
-				   }); 
-				    
-				    </script>
-				<figure class="mix work-item">
-					<img id="zoom_03" src='img/zoom_images/small/image3.png' data-zoom-image="img/zoom_images/large/image3.jpg"/>
-				</figure>
-				<script>
-				$('#zoom_03').elevateZoom({
-				
-				cursor: "crosshair",
-				scrollZoom: true, 
-				zoomWindowFadeIn: 500,
-				zoomWindowFadeOut: 750
-				   }); 
-				    
-				    </script>
-				
-				<figure class="mix work-item">
-					<img id="zoom_04" src='img/zoom_images/small/image4.png' data-zoom-image="img/zoom_images/large/image4.jpg"/>
-				</figure>
-				<script>
-				$('#zoom_04').elevateZoom({
-				    zoomType: "inner",
-				cursor: "crosshair",
-				scrollZoom: true, 
-				zoomWindowFadeIn: 500,
-				zoomWindowFadeOut: 750
-				   }); 
-				    
-				    </script>
-
-				 
-				
-			</div>
-			
-			
-		
-			<div id="vnav" class="div-centered" > 
-	
-				<ul id="vertical"> 
-					<li><img src="img/project/item-1.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-2.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-3.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-4.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-5.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-6.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-7.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/item-8.jpg" width="900" alt="" height="550" /></li> 
-					<li><img src="img/project/overcoat.jpg" width="900" alt="" height="550" /></li> 
-				</ul> 
-				
-			</div> 
-			
-			
+					
 			
 		</section>
-		
-				
-		
         <!--
         End Our Works
         ==================================== -->
 		
-		        <!--
-        Home Slider
-        ==================================== -->
 		
-		<section id="slider">
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			
-				<!-- Indicators bullet -->
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				</ol>
-				<!-- End Indicators bullet -->				
-				
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-					
-					<!-- single slide -->
-					<div class="item active" style="background-image: url(img/banner2.jpg);">
-						<div class="carousel-caption">
-							<h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Discover<span> Fashion</span></h2>
-							<h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">Buy</span> his/her idea</h3>
-							<p data-wow-duration="500ms" class="wow slideInRight animated">You are helping the future designers</p>
-							
-							<ul class="social-links text-center">
-								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- end single slide -->
-					
-					
-					<!-- single slide -->
-					<div class="item" style="background-image: url(img/project/item-1.jpg);">
-						<div class="carousel-caption">
-							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Start<span> Now</span>!</h2>
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">Create</span> your own project</h3>
-							<p data-wow-duration="1000ms" class="wow slideInRight animated">The only thing to worry about is your design</p>
-							
-							<ul class="social-links text-center">
-								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- end single slide -->
-					
-					
-					<!-- single slide -->
-					<div class="item" style="background-image: url(img/project/item-3.jpg);">
-						<div class="carousel-caption">
-							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Start<span> Now</span>!</h2>
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">Create</span> your own project</h3>
-							<p data-wow-duration="1000ms" class="wow slideInRight animated">The only thing to worry about is your design</p>
-							
-							<ul class="social-links text-center">
-								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- end single slide -->
-					
-
-					
-				</div>
-				<!-- End Wrapper for slides -->
-				
-			</div>
-		</section>
-		
-        <!--
-        End Home SliderEnd
-        ==================================== -->
+	
 		
 		
 		
@@ -476,106 +354,7 @@
 		
 		
 		
-        <!--
-        Meet Our Team
-        ==================================== -->		
-		
-		<section id="team" class="team">
-			<div class="container">
-				<div class="row">
-		
-					<div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
-						<h2>Meet Our Team</h2>
-						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-					</div>
-					
-					<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-						<p>these are our core team members(could be deleted)</p>
-					</div>
-
-					<!-- single member -->
-					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
-						<div class="member-thumb">
-							<img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
-							<figcaption class="overlay">
-								<h5>voluptatem quia voluptas </h5>
-								<p>sit aspernatur aut odit aut fugit,</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
-							</figcaption>
-						</div>
-						<h4>John Filmr Doe</h4>
-						<span>Managing Director</span>
-					</figure>
-					<!-- end single member -->
-					
-					<!-- single member -->
-					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="member-thumb">
-							<img src="img/team/member-2.png" alt="Team Member" class="img-responsive">
-							<figcaption class="overlay">
-								<h5>voluptatem quia voluptas </h5>
-								<p>sit aspernatur aut odit aut fugit,</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
-							</figcaption>
-						</div>
-						<h4>Martin Matrone</h4>
-						<span>Lead Developer</span>
-					</figure>
-					<!-- end single member -->
-					
-					<!-- single member -->
-					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
-						<div class="member-thumb">
-							<img src="img/team/member-3.png" alt="Team Member" class="img-responsive">
-							<figcaption class="overlay">
-								<h5>voluptatem quia voluptas </h5>
-								<p>sit aspernatur aut odit aut fugit,</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
-							</figcaption>
-						</div>
-						<h4>Steve Flaulkin</h4>
-						<span>Sr. UI Designer</span>
-					</figure>
-					<!-- end single member -->
-					
-					<!-- single member -->
-					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
-						<div class="member-thumb">
-							<img src="img/team/member-4.png" alt="Team Member" class="img-responsive">
-							<figcaption class="overlay">
-								<h5>computer science</h5>
-								<p>Politecnico di Milano</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
-							</figcaption>
-						</div>
-						<h4>Yuxing Chen</h4>
-						<span>Front-end programmer</span>
-					</figure>
-					<!-- end single member -->
-					
-				</div>
-			</div>
-		</section>
-		
-        <!--
-        End Meet Our Team
-        ==================================== -->
+       
 		
 		
 		
