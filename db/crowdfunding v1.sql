@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-03-09 20:43:59
+Date: 2015-03-11 18:22:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,26 @@ INSERT INTO `clothes_size` VALUES ('4', 'l');
 INSERT INTO `clothes_size` VALUES ('5', 'xl');
 INSERT INTO `clothes_size` VALUES ('6', 'xxl');
 INSERT INTO `clothes_size` VALUES ('7', 'xxxl');
+
+-- ----------------------------
+-- Table structure for clothes_style
+-- ----------------------------
+DROP TABLE IF EXISTS `clothes_style`;
+CREATE TABLE `clothes_style` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of clothes_style
+-- ----------------------------
+INSERT INTO `clothes_style` VALUES ('1', 'work');
+INSERT INTO `clothes_style` VALUES ('2', 'nightlife');
+INSERT INTO `clothes_style` VALUES ('3', 'weekend');
+INSERT INTO `clothes_style` VALUES ('4', 'street');
+INSERT INTO `clothes_style` VALUES ('5', 'travel');
+INSERT INTO `clothes_style` VALUES ('6', 'sport');
 
 -- ----------------------------
 -- Table structure for clothes_type
@@ -90,6 +110,7 @@ CREATE TABLE `projects` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `users_id` int(10) unsigned NOT NULL,
   `clothes_type_id` int(10) unsigned NOT NULL,
+  `clothes_style_id` int(10) unsigned NOT NULL,
   `sex` enum('female','neutral','male') DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -114,16 +135,18 @@ CREATE TABLE `projects` (
   `publish_date` timestamp NULL DEFAULT NULL,
   `deadline` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `projects_clothes_type_fk` (`clothes_type_id`),
   KEY `projects_users_fk` (`users_id`),
-  CONSTRAINT `projects_clothes_type_fk` FOREIGN KEY (`clothes_type_id`) REFERENCES `clothes_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY `projects_clothes_type_fk` (`clothes_type_id`),
+  KEY `projects_clothes_style_fk` (`clothes_style_id`),
+  CONSTRAINT `projects_clothes_style_fk` FOREIGN KEY (`clothes_style_id`) REFERENCES `clothes_style` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `projects_clothes_type_fk` FOREIGN KEY (`clothes_type_id`) REFERENCES `clothes_type` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `projects_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of projects
 -- ----------------------------
-INSERT INTO `projects` VALUES ('1', '1', '2', 'male', 'awesome jacket', '3925183033', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton', null, null, null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-09 20:17:42', '2015-01-27 11:48:07', '2015-03-09 20:17:42');
+INSERT INTO `projects` VALUES ('1', '1', '2', '1', 'male', 'awesome jacket', '3925183033', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton', null, null, null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-11 18:18:54', '2015-01-27 11:48:07', '2015-03-11 18:18:54');
 
 -- ----------------------------
 -- Table structure for project_comment
