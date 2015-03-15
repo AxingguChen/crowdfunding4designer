@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-03-11 18:22:11
+Date: 2015-03-15 19:55:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,13 +116,13 @@ CREATE TABLE `projects` (
   `email` varchar(255) DEFAULT NULL,
   `technical_drawing` varchar(255) DEFAULT NULL,
   `projectpic` varchar(255) DEFAULT NULL,
-  `desciption` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `madeof` varchar(255) DEFAULT NULL,
   `howtowash` varchar(255) DEFAULT NULL,
   `whyme` varchar(255) DEFAULT NULL,
   `comment` varchar(255) DEFAULT NULL,
   `cost` float unsigned zerofill DEFAULT NULL,
-  `minmum_sale` int(10) unsigned zerofill DEFAULT NULL,
+  `minimum_sale` int(10) unsigned zerofill DEFAULT NULL,
   `current_sale` int(10) unsigned zerofill DEFAULT NULL,
   `price` float unsigned zerofill DEFAULT NULL,
   `round` tinyint(4) DEFAULT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE `projects` (
   `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `publish_date` timestamp NULL DEFAULT NULL,
-  `deadline` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `deadline` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `projects_users_fk` (`users_id`),
   KEY `projects_clothes_type_fk` (`clothes_type_id`),
@@ -141,12 +141,13 @@ CREATE TABLE `projects` (
   CONSTRAINT `projects_clothes_style_fk` FOREIGN KEY (`clothes_style_id`) REFERENCES `clothes_style` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `projects_clothes_type_fk` FOREIGN KEY (`clothes_type_id`) REFERENCES `clothes_type` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `projects_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of projects
 -- ----------------------------
-INSERT INTO `projects` VALUES ('1', '1', '2', '1', 'male', 'awesome jacket', '3925183033', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton', null, null, null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-11 18:18:54', '2015-01-27 11:48:07', '2015-03-11 18:18:54');
+INSERT INTO `projects` VALUES ('1', '1', '2', '1', 'male', 'awesome jacket', 'axinggu@gmail.com', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('2', '2', '3', '2', 'female', 'comfortable underwear', 'axinggu@qq.com', 'img/drawing/1.pdf', 'img/project/2-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
 
 -- ----------------------------
 -- Table structure for project_comment
@@ -182,6 +183,7 @@ CREATE TABLE `project_order` (
   `flag_payment` bit(1) DEFAULT NULL,
   `fag_delivery` bit(1) DEFAULT NULL,
   `deadline` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `comment` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `order_projects_fk` (`projects_id`),
   KEY `order_users_fk` (`users_id`),
@@ -361,9 +363,10 @@ CREATE TABLE `users` (
   `flag_accepted` bit(1) DEFAULT NULL,
   `flag_declined` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'axinggu@gmail', 'SHA-1 or MD5', 'chen', 'yuxing', 'i am a deisgner college junior student.', 'Italy', 'Milano', 'rubattino, first street, no 19', '20134', '2015-02-27 11:41:50', '2015-02-27 11:44:12', 'img/avatar/1.jpg', null, 'Politecnico di Milano', 'design', '3925183033', null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('1', 'axinggu@gmail.com', 'SHA-1 or MD5', 'chen', 'yuxing', 'i am a deisgner college junior student.', 'Italy', 'Milano', 'rubattino, first street, no 19', '20134', '2015-02-27 11:41:50', '2015-03-14 09:49:42', 'img/avatar/1.jpg', null, 'Politecnico di Milano', 'design', '3925183033', null, null, null, '\0', '', '\0');
+INSERT INTO `users` VALUES ('2', 'axinggu@qq.com', 'SHA-1 or MD5', 'chan', 'jackie', 'i am a deisgner college junior student.', 'China', 'HongKong', 'central Distrct', '999077', '2015-03-14 09:45:51', '2015-03-14 09:48:58', 'img/avatar/2.jpg', null, 'HongKong University', 'design', '3939393939', null, null, null, '\0', '', '\0');
