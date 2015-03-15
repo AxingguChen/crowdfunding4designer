@@ -9,9 +9,9 @@
 		<!-- Always force latest IE rendering engine or request Chrome Frame -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<!-- Page Title -->
-        <title>project</title>		
+        <title>User Profile</title>		
 		<!-- Meta Description -->
-        <meta name="description" content="project page">
+        <meta name="description" content="profile page">
         <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
         <meta name="author" content="------------**jackie chen**------------">
 		<!-- Mobile Specific Meta -->
@@ -27,10 +27,6 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- Twitter Bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>		
 		<!-- jquery.fancybox  -->
         <link rel="stylesheet" href="css/jquery.fancybox.css">
 		<!-- animate -->
@@ -39,31 +35,14 @@
         <link rel="stylesheet" href="css/main.css">
 		<!-- media-queries -->
         <link rel="stylesheet" href="css/media-queries.css">
-		<!-- project pic css -->
-        <link rel="stylesheet" href="css/project.css">
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
-        <script src="js/project.js"></script>
-		<!-- Image Zoom -->
-		
-		<script src='js/jquery-2.1.0.min.js'></script>
-		<script src='js/jquery.elevatezoom.js'></script>
-		
-		<!-- Modernizr js -->
-		<script type="text/javascript" src="js/modernizr-2.8.0.min.js"></script>
-		<!-- Plugins -->
-		<script type="text/javascript" src="js/plugins.js"></script>
-		<!-- Custom JavaScript Functions -->
-		<script type="text/javascript" src="js/time_functions.js"></script>
-		
+
     </head>
 	
     <body id="body">
-		
-		
-		
-		
+	
 		<!-- preloader -->
 		<div id="preloader">
 			<img src="img/preloader.gif" alt="Preloader">
@@ -96,11 +75,10 @@
 				<!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
-                        <li ><a href="#facts">Home</a></li>
-                        <li class="current"><a href="#works">Project</a></li>
-                        <li><a href="#features">Detailed</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#comment">Comment</a></li>
+                        <li class="current"><a href="#body">info</a></li>
+                        <li><a href="#contact">contact</a></li>
+                        <li><a href="#background">background</a></li>
+                        <li><a href="#purchased">purchased</a></li>
                     </ul>
                     
                     <ul id="nav1" class="nav navbar-nav">
@@ -116,297 +94,232 @@
         End Fixed Navigation
         ==================================== -->
 		
+
 		
+       
 		
-		<!--
-        Some fun facts
-        ==================================== -->		
-		
-		<section id="facts" class="facts">
-			<div class="parallax-overlay">
-				<div class="container">
-					
-				</div>
-			</div>
-		</section>
-		
-        <!--
-        End Some fun facts
-        ==================================== -->
-	      
 		
         <!--
         Our Works
         ==================================== -->
 		
-		<section id="works" class="works">	
+		<section id="works" class="works clearfix">
 			<div class="container">
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h2>@title</h2>
+						<h2>Info</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
-					<!-- start of row -->
-					<div class="row">
-					
-						<div class="project-wrapper col-md-5">
-							<figure class="mix work-item-project">
-							<img id="zoom_01" src='img/zoom_images/small/image1.png' data-zoom-image="img/zoom_images/large/image1.jpg"/>
-							</figure>
-			
-							<script>
-								$('#zoom_01').elevateZoom({
-							    zoomType: "inner",
-							cursor: "crosshair",
-							scrollZoom: true,
-							zoomWindowFadeIn: 500,
-							zoomWindowFadeOut: 750
-							   }); 
-								</script>	
-							 
-							
-						</div>
-					
-						<div class="text-center col-md-7">
-							<br/>
-							<p>@desciption</p>
-							<p>@round</p>
-							<p>@price</p>
-							<div class="btn-group">
-							<div class="btn-group">
-						            <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle">size<span class="caret"></span></button>
-						            <ul class="dropdown-menu">
-						                <li><a href="#">xs</a></li>
-						                <li><a href="#">s</a></li>
-						                <li><a href="#">m</a></li>
-						                <li><a href="#">l</a></li>
-						                <li><a href="#">xl</a></li>
-						                <li><a href="#">xxl</a></li>
-						                <li><a href="#">xxxl</a></li>
-						                <li class="divider"></li>
-						                <li><a href="#">xxxxl</a></li>
-						            </ul> 
-						        </div>
-						    </div><br/><br/><br/>
-						        <button type="button" class="btn btn-success">Buy</button>
-						        <button type="button" class="btn btn-warning">Add to Cart</button>
-						     
-						    <div class="row number-counters">
-							<!-- split -->	
-							<div id="time_countdown" class="time-count-container">
-			
-								<div class="col-sm-3">
-									<div class="time-box">
-										<div class="time-box-inner dash days_dash animated" data-animation="rollIn" data-animation-delay="300">
-											<span class="time-number">
-												<span class="digit">0</span>
-												<span class="digit">0</span>
-												<span class="digit">0</span>
-											</span>
-											<span class="time-name">Days</span>
-										</div>
-									</div>
-								</div>
-			
-								<div class="col-sm-3">
-									<div class="time-box">
-										<div class="time-box-inner dash hours_dash animated" data-animation="rollIn" data-animation-delay="600">
-											<span class="time-number">
-												<span class="digit">0</span>
-												<span class="digit">0</span>	
-											</span>
-											<span class="time-name">Hours</span>
-										</div>
-									</div>
-								</div>
-			
-								<div class="col-sm-3">
-									<div class="time-box">
-										<div class="time-box-inner dash minutes_dash animated" data-animation="rollIn" data-animation-delay="900">
-											<span class="time-number">
-												<span class="digit">0</span>
-												<span class="digit">0</span>
-											</span>
-											<span class="time-name">Minutes</span>
-										</div>
-									</div>
-								</div>
-			
-								<div class="col-sm-3">
-									<div class="time-box">
-										<div class="time-box-inner dash seconds_dash animated" data-animation="rollIn" data-animation-delay="1200">
-											<span class="time-number">
-												<span class="digit">0</span>
-												<span class="digit">0</span>
-											</span>
-											<span class="time-name">Seconds</span>
-										</div>
-									</div>
-								</div>
-								
-							</div><!-- /.time-count-container -->
-									<!-- split -->
-					
-						
-				
+					<div class="sec-sub-title text-center">
+						<p>here is the basic info of user</p>
 					</div>
-						     
-						</div>
-							
-					  
-					       
-					        
-							
-					</div>
-					<!-- end of row -->
-					<br/>
-					<div class="progress">
-					    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-					      70% Complete
-					    </div>
-					</div>
-					
+									
 				</div>
+				<div class="text-center">
+						<p>@firstname  @lastname</p>
+						<p>@about</p>
+						<p>@avatar</p>
+				</div>
+				
+				
 			</div>
-					
 			
+			
+				 
+				
+			</div>
+		
+
 		</section>
+		
         <!--
         End Our Works
         ==================================== -->
 		
-		
-	
-		
-		
-		
-		
-		 <!--
-        Features
+        <!--
+        Our woman clothes
         ==================================== -->
 		
-		<section id="features" class="features">
+		<section id="contract" class="features">
 			<div class="container">
 				<div class="row">
 				
-					<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
-						<h2>More Detailed</h2>
+					<div class="sec-title text-center">
+						<h2>Contact</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
-
-					<!-- service item -->
-					<div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-recycle fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Made Of</h3>
-								<p> 
-								@madeof 
-								<a></a></p>
-							</div>
-						</div>
-					</div>
-					<!-- end service item -->
 					
-					<!-- service item -->
-					<div class="col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-pencil fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>How To Wash</h3>
-								<p>@howtowash</p>
-							</div>
-						</div>
+					<div class="sec-sub-title text-center">
+						<p>Here is the contact of the user</p>
 					</div>
-					<!-- end service item -->
 					
-					<!-- service item -->
-					<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-bullhorn fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Why Me</h3>
-								<p>@whyme</p>
-							</div>
-						</div>
-					</div>
-					<!-- end service item -->
-						
+				</div>
+				
+				<div class="text-center">
+						<p>@address @country @zipcode</p>
+						<p>@cellphone</p>
+						<p>@bank_account @bank_holder</p>
+						<p>@paypal</p>
 				</div>
 			</div>
+			
+			
+			
 		</section>
 		
         <!--
-        End Features
+        End woman clothes
+        ==================================== -->
+        
+        
+        
+                <!--
+        Man clothes 
         ==================================== -->
 		
-		
-		
-       
-		
-		
-		
-
-		
-		
-		
-		<!--
-        Contact Us
-        ==================================== -->		
-		
-		<section id="comment" class="contact">
+		<section id="background" class="works clearfix">
 			<div class="container">
-				<div class="row mb50">
+				<div class="row">
 				
-					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
-						<h2>Comment</h2>
+					<div class="sec-title text-center">
+						<h2>background</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
-					<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-						<p>Welcome for any questions and suggestions</p>
+					<div class="sec-sub-title text-center">
+						<p>See you profile here.</p>
 					</div>
 					
-					
-					<!-- contact form -->
-					<div class="wow text-center fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						
-						<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-						<p>@history comment list{@project_id @user_id @comment}</p>
-						</div>
-						
-						<div class="contact-form">
-							<h3>Leave a comment</h3>
-							<form action="#" id="contact-form">
-
-
-								<div class="input-group">
-									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
-								</div>
-								<div class="input-group">
-									<input type="submit" id="form-submit" class="pull-right" value="Comment">
-								</div>
-							</form>
-						</div>
+					<div class="text-center">
+						<p>@major  @school</p>
+						<p>@certificate_file</p>
 					</div>
-					<!-- end contact form -->
+
 					
+				</div>
+			</div>
+		</section>	
+
+		  <!--
+		        Our woman clothes
+		        ==================================== -->
+				
+		<section id="purchased" class="features">
+			<div class="container">
+				<div class="row">
+				
+					<div class="sec-title text-center">
+						<h2>Purchased Projects</h2>
+						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+					</div>
+					
+					<div class="sec-sub-title text-center">
+						<p>These are projects you have purchased</p>
+					</div>
+					
+					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
+						<ul class="text-center">
+							<li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
+							<li><a href="javascript:;" data-filter=".style1" class="filter">style1</a></li>
+							<li><a href="javascript:;" data-filter=".style2" class="filter">style2</a></li>
+							<li><a href="javascript:;" data-filter=".style3" class="filter">style3</a></li>
+							<li><a href="javascript:;" data-filter=".style4" class="filter">style4</a></li>
+							<li><a href="javascript:;" data-filter="" class="filter">More</a></li>
+							
+						</ul>
+					</div>
 					
 				</div>
 			</div>
 			
+			<div class="project-wrapper">
+			
+				<figure class="mix work-item style1">
+					<img src="img/project/item-1.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-1.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Old fashion sweater</h4>
+						<p>State: Complete & Delivered</p>
+					</figcaption>
+				</figure>
+				
+				<figure class="mix work-item style2">
+					<img src="img/project/sweater.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="#"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Sweater </h4>
+						<p>State: Funding 75%</p>
+					</figcaption>
+				</figure>
+				
+				<figure class="mix work-item style3">
+					<img src="img/project/item-3.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-3.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Labore et dolore magnam</h4>
+						<p>Photography</p>
+					</figcaption>
+				</figure>
+				
+				<figure class="mix work-item style4">
+					<img src="img/project/item-4.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-4.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Labore et dolore magnam</h4>
+						<p>Photography</p>
+					</figcaption>
+				</figure>
+			
+				<figure class="mix work-item style1">
+					<img src="img/project/item-5.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-5.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Labore et dolore magnam</h4>
+						<p>Photography</p>
+					</figcaption>
+				</figure>
+				
+				<figure class="mix work-item style2">
+					<img src="img/project/item-6.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-6.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Labore et dolore magnam</h4>
+						<p>Photography</p>
+					</figcaption>
+				</figure>
+				
+				<figure class="mix work-item style3">
+					<img src="img/project/item-7.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-7.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Labore et dolore magnam</h4>
+						<p>Photography</p>
+					</figcaption>
+				</figure>
+				
+				<figure class="mix work-item style4">
+					<img src="img/project/item-8.jpg" alt="">
+					<figcaption class="overlay">
+						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-8.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>Labore et dolore magnam</h4>
+						<p>Photography</p>
+					</figcaption>
+				</figure>
+				
+				
+			</div>
+			<div class="sec-sub-title text-center">
+				<p>button (ajax) loading more</p>
+			</div>
+			
 		</section>
+		
+        <!--
+        End woman clothes
+        ==================================== -->
+
 		
         <!--
         End Contact Us
@@ -490,6 +403,11 @@
         <script src="js/jquery-countTo.js"></script>
 		<!-- jquery.appear -->
         <script src="js/jquery.appear.js"></script>
+		<!-- Contact form validation -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+		<!-- Google Map -->
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<!-- jquery easing -->
         <script src="js/jquery.easing.min.js"></script>
 		<!-- jquery easing -->
@@ -510,8 +428,6 @@
 		
 		<script type="text/javascript">
 			$(function(){
-				
-
 				/* ========================================================================= */
 				/*	Contact Form
 				/* ========================================================================= */
