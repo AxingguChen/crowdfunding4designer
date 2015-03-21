@@ -1,41 +1,31 @@
 <?php
+class Projects extends CI_Controller
+{
+	public function __construct()
+	{
+	  parent::__construct();
+	}
+	
+	public function index()
+	{
+		$this->load->model('projects_model');		
+		$data['rows'] = $this->projects_model->get_all();
+		$this->load->view('projects_view', $data);
+	}
 
-
-class Projects extends CI_Controller {
-	
-	function index(){
-		
+	public function project($id = 1)
+	{
+		if ($id > 0)
+		{
+			$this->load->model('projects_model');		
+			$data['rows'] = $this->projects_model->get_by_id($id);
+		}
+		else
+		{
+			$data['rows'] = array();
+		}
+		$this->load->view('project_view', $data);
 	}
-	
-	function recommend(){
-		$this->load->model('projects_model');
-		$data['rows'] = $this->projects_model->recommend();
-		
-		$this->load->view('projects_view',$data);
-	}
-	
-	function woman(){
-		$this->load->model('projects_model');
-		$data['rows'] = $this->projects_model->woman();
-	
-		$this->load->view('projects_view',$data);
-	}
-	
-	function man(){
-		$this->load->model('projects_model');
-		$data['rows'] = $this->projects_model->man();
-	
-		$this->load->view('projects_view',$data);
-	}
-	
-	function project(){
-		$this->load->model('projects_model');
-		$project_id = $_GET['id'];
-		$data['rows'] = $this->projects_model->project($project_id);
-		
-		$this->load->view('project_view',$data);
-	}
-	
 }
 
 ?>

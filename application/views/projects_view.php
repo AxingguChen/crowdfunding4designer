@@ -145,7 +145,7 @@
 						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="<?php echo base_url();?>assets/img/project/item-1.jpg"><i class="fa fa-eye fa-lg"></i></a>
 						<h4><?php echo $r->title;?></h4>
 						<p>round:$<?php echo $r->price;?></p>
-						<p>$<?php echo $r->price;?>,<?php echo $r->current_sale/$r->minimum_sale;?></p>
+						<p>$<?php echo $r->price;?>,<?php echo $r->current_sale;?>/<?php echo $r->minimum_sale;?></p>
 					</figcaption>
 				</figure>
 				
