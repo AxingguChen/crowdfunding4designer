@@ -1,4 +1,7 @@
 <?php
+/*
+test
+*/
 class Projects extends CI_Controller
 {
 	private $SEARCH_BY_TITLE = 1;
