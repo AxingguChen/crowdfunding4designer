@@ -1,154 +1,131 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: 2015-03-22 17:29:56
--- 服务器版本： 5.6.17
--- PHP Version: 5.5.12
+/*
+Navicat MySQL Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+Source Server         : xammp
+Source Server Version : 50621
+Source Host           : localhost:3306
+Source Database       : crowdfunding
 
+Target Server Type    : MYSQL
+Target Server Version : 50621
+File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+Date: 2015-03-22 18:44:40
+*/
 
---
--- Database: `crowdfunding`
---
+SET FOREIGN_KEY_CHECKS=0;
 
--- --------------------------------------------------------
-
---
--- 表的结构 `clothes_size`
---
-
-CREATE TABLE IF NOT EXISTS `clothes_size` (
+-- ----------------------------
+-- Table structure for clothes_size
+-- ----------------------------
+DROP TABLE IF EXISTS `clothes_size`;
+CREATE TABLE `clothes_size` (
   `clothes_size_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `clothes_size_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`clothes_size_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `clothes_size`
---
+-- ----------------------------
+-- Records of clothes_size
+-- ----------------------------
+INSERT INTO `clothes_size` VALUES ('1', 'xs');
+INSERT INTO `clothes_size` VALUES ('2', 's');
+INSERT INTO `clothes_size` VALUES ('3', 'm');
+INSERT INTO `clothes_size` VALUES ('4', 'l');
+INSERT INTO `clothes_size` VALUES ('5', 'xl');
+INSERT INTO `clothes_size` VALUES ('6', 'xxl');
+INSERT INTO `clothes_size` VALUES ('7', 'xxxl');
 
-INSERT INTO `clothes_size` (`clothes_size_id`, `clothes_size_name`) VALUES
-(1, 'xs'),
-(2, 's'),
-(3, 'm'),
-(4, 'l'),
-(5, 'xl'),
-(6, 'xxl'),
-(7, 'xxxl');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `clothes_style`
---
-
-CREATE TABLE IF NOT EXISTS `clothes_style` (
+-- ----------------------------
+-- Table structure for clothes_style
+-- ----------------------------
+DROP TABLE IF EXISTS `clothes_style`;
+CREATE TABLE `clothes_style` (
   `clothes_style_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `clothes_style_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`clothes_style_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `clothes_style`
---
+-- ----------------------------
+-- Records of clothes_style
+-- ----------------------------
+INSERT INTO `clothes_style` VALUES ('1', 'work');
+INSERT INTO `clothes_style` VALUES ('2', 'nightlife');
+INSERT INTO `clothes_style` VALUES ('3', 'weekend');
+INSERT INTO `clothes_style` VALUES ('4', 'street');
+INSERT INTO `clothes_style` VALUES ('5', 'travel');
+INSERT INTO `clothes_style` VALUES ('6', 'sport');
 
-INSERT INTO `clothes_style` (`clothes_style_id`, `clothes_style_name`) VALUES
-(1, 'work'),
-(2, 'nightlife'),
-(3, 'weekend'),
-(4, 'street'),
-(5, 'travel'),
-(6, 'sport');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `clothes_type`
---
-
-CREATE TABLE IF NOT EXISTS `clothes_type` (
+-- ----------------------------
+-- Table structure for clothes_type
+-- ----------------------------
+DROP TABLE IF EXISTS `clothes_type`;
+CREATE TABLE `clothes_type` (
   `clothes_type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `clothes_type_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`clothes_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `clothes_type`
---
+-- ----------------------------
+-- Records of clothes_type
+-- ----------------------------
+INSERT INTO `clothes_type` VALUES ('1', 'Tops & Tees');
+INSERT INTO `clothes_type` VALUES ('2', 'Coat & Jackets');
+INSERT INTO `clothes_type` VALUES ('3', 'Underwear');
+INSERT INTO `clothes_type` VALUES ('4', 'Shirts');
+INSERT INTO `clothes_type` VALUES ('5', 'Hoodies & Sweatershirts');
+INSERT INTO `clothes_type` VALUES ('6', 'Jeans');
+INSERT INTO `clothes_type` VALUES ('7', 'Pants');
+INSERT INTO `clothes_type` VALUES ('8', 'Suits & Blazer');
+INSERT INTO `clothes_type` VALUES ('9', 'Shorts');
+INSERT INTO `clothes_type` VALUES ('10', 'Sweaters');
+INSERT INTO `clothes_type` VALUES ('11', 'Accessories');
+INSERT INTO `clothes_type` VALUES ('12', '');
+INSERT INTO `clothes_type` VALUES ('13', '');
+INSERT INTO `clothes_type` VALUES ('14', '');
+INSERT INTO `clothes_type` VALUES ('15', '');
+INSERT INTO `clothes_type` VALUES ('16', '');
+INSERT INTO `clothes_type` VALUES ('17', '');
+INSERT INTO `clothes_type` VALUES ('18', '');
+INSERT INTO `clothes_type` VALUES ('19', '');
+INSERT INTO `clothes_type` VALUES ('20', '');
+INSERT INTO `clothes_type` VALUES ('21', 'Dresses');
+INSERT INTO `clothes_type` VALUES ('22', 'Coats & Jacket');
+INSERT INTO `clothes_type` VALUES ('23', 'Blouses & Shirts');
+INSERT INTO `clothes_type` VALUES ('24', 'Tops & Tees');
+INSERT INTO `clothes_type` VALUES ('25', 'Hoodies & Sweatershirts');
+INSERT INTO `clothes_type` VALUES ('26', 'Intimates');
+INSERT INTO `clothes_type` VALUES ('27', 'Swimwear');
+INSERT INTO `clothes_type` VALUES ('28', 'Pants & Capris');
+INSERT INTO `clothes_type` VALUES ('29', 'Sweaters');
+INSERT INTO `clothes_type` VALUES ('30', 'Skirts');
+INSERT INTO `clothes_type` VALUES ('31', 'Leggings');
+INSERT INTO `clothes_type` VALUES ('32', 'Accessories');
 
-INSERT INTO `clothes_type` (`clothes_type_id`, `clothes_type_name`) VALUES
-(1, 'Tops & Tees'),
-(2, 'Coat & Jackets'),
-(3, 'Underwear'),
-(4, 'Shirts'),
-(5, 'Hoodies & Sweatershirts'),
-(6, 'Jeans'),
-(7, 'Pants'),
-(8, 'Suits & Blazer'),
-(9, 'Shorts'),
-(10, 'Sweaters'),
-(11, 'Accessories'),
-(12, ''),
-(13, ''),
-(14, ''),
-(15, ''),
-(16, ''),
-(17, ''),
-(18, ''),
-(19, ''),
-(20, ''),
-(21, 'Dresses'),
-(22, 'Coats & Jacket'),
-(23, 'Blouses & Shirts'),
-(24, 'Tops & Tees'),
-(25, 'Hoodies & Sweatershirts'),
-(26, 'Intimates'),
-(27, 'Swimwear'),
-(28, 'Pants & Capris'),
-(29, 'Sweaters'),
-(30, 'Skirts'),
-(31, 'Leggings'),
-(32, 'Accessories');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `groups`
---
-
-CREATE TABLE IF NOT EXISTS `groups` (
+-- ----------------------------
+-- Table structure for groups
+-- ----------------------------
+DROP TABLE IF EXISTS `groups`;
+CREATE TABLE `groups` (
   `groups_id` int(10) unsigned NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`groups_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `groups`
---
+-- ----------------------------
+-- Records of groups
+-- ----------------------------
+INSERT INTO `groups` VALUES ('1', 'admin');
+INSERT INTO `groups` VALUES ('3', 'checker');
+INSERT INTO `groups` VALUES ('10', 'designer');
+INSERT INTO `groups` VALUES ('12', 'user');
+INSERT INTO `groups` VALUES ('15', 'guest');
 
-INSERT INTO `groups` (`groups_id`, `name`) VALUES
-(1, 'admin'),
-(3, 'checker'),
-(10, 'designer'),
-(12, 'user'),
-(15, 'guest');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `projects`
---
-
-CREATE TABLE IF NOT EXISTS `projects` (
+-- ----------------------------
+-- Table structure for projects
+-- ----------------------------
+DROP TABLE IF EXISTS `projects`;
+CREATE TABLE `projects` (
   `projects_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projects_users_id` int(10) unsigned NOT NULL,
   `projects_clothes_type_id` int(10) unsigned NOT NULL,
@@ -162,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `madeof` varchar(255) DEFAULT NULL,
   `howtowash` varchar(255) DEFAULT NULL,
   `whyme` varchar(255) DEFAULT NULL,
-  `comment` varchar(255) DEFAULT NULL,
+  `projects_comment` varchar(255) DEFAULT NULL,
   `cost` float unsigned zerofill DEFAULT NULL,
   `minimum_sale` int(10) unsigned zerofill DEFAULT NULL,
   `current_sale` int(10) unsigned zerofill DEFAULT NULL,
@@ -175,35 +152,33 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `publish_date` timestamp NULL DEFAULT NULL,
-  `deadline` timestamp NULL DEFAULT NULL,
+  `projects_deadline` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`projects_id`),
   KEY `projects_users_fk` (`projects_users_id`),
   KEY `projects_clothes_style_fk` (`projects_clothes_style_id`),
-  KEY `projects_clothes_type_fk` (`projects_clothes_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+  KEY `projects_clothes_type_fk` (`projects_clothes_type_id`),
+  CONSTRAINT `projects_clothes_style_fk` FOREIGN KEY (`projects_clothes_style_id`) REFERENCES `clothes_style` (`clothes_style_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `projects_clothes_type_fk` FOREIGN KEY (`projects_clothes_type_id`) REFERENCES `clothes_type` (`clothes_type_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `projects_users_fk` FOREIGN KEY (`projects_users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `projects`
---
+-- ----------------------------
+-- Records of projects
+-- ----------------------------
+INSERT INTO `projects` VALUES ('1', '1', '2', '1', 'male', 'awesome jacket', 'axinggu@gmail.com', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('2', '2', '3', '2', 'female', 'comfortable underwear', 'axinggu@qq.com', 'img/drawing/1.pdf', 'img/project/2-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('3', '1', '2', '1', 'male', 'awesome shirt', 'axinggu@gmail.com', 'img/drawing/3.pdf', 'img/project/3-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('4', '2', '3', '2', 'female', 'comfortable jeans', 'axinggu@qq.com', 'img/drawing/4.pdf', 'img/project/4-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('5', '1', '2', '1', 'male', 'awesome dress', 'axinggu@gmail.com', 'img/drawing/5.pdf', 'img/project/5-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('6', '2', '3', '2', 'female', 'comfortable hat', 'axinggu@qq.com', 'img/drawing/6.pdf', 'img/project/6-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('7', '1', '2', '1', 'male', 'awesome coat', 'axinggu@gmail.com', 'img/drawing/7.pdf', 'img/project/7-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('8', '2', '3', '2', 'female', 'fashin hoodie', 'axinggu@qq.com', 'img/drawing/8.pdf', 'img/project/8-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
 
-INSERT INTO `projects` (`projects_id`, `projects_users_id`, `projects_clothes_type_id`, `projects_clothes_style_id`, `sex`, `title`, `contact_email`, `technical_drawing`, `projectpic`, `description`, `madeof`, `howtowash`, `whyme`, `comment`, `cost`, `minimum_sale`, `current_sale`, `price`, `round`, `flag_close`, `flag_publish`, `flag_cost`, `flag_pending`, `create_date`, `update_date`, `publish_date`, `deadline`) VALUES
-(1, 1, 2, 1, 'male', 'awesome jacket', '123@gmail.com', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', NULL, 000000000030, 0000000200, 0000000033, 000000000045, 11, b'0', b'1', b'1', b'1', '2015-02-27 03:46:33', '2015-03-22 16:23:28', '2015-01-27 03:48:07', '2015-03-14 01:52:27'),
-(2, 2, 3, 2, 'female', 'comfortable underwear', 'axinggu@qq.com', 'img/drawing/1.pdf', 'img/project/2-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', NULL, 000000000010, 0000000200, 0000000045, 000000000015, 1, b'0', b'1', b'1', b'1', '2015-03-14 01:50:48', '2015-03-14 01:55:31', '2015-03-14 01:55:05', '2015-05-15 01:54:37'),
-(3, 1, 2, 1, 'male', 'awesome shirt', 'axinggu@gmail.com', 'img/drawing/3.pdf', 'img/project/3-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', NULL, 000000000030, 0000000200, 0000000033, 000000000045, 1, b'0', b'1', b'1', b'1', '2015-02-27 03:46:33', '2015-03-14 01:52:27', '2015-01-27 03:48:07', '2015-03-14 01:52:27'),
-(4, 2, 3, 2, 'female', 'comfortable jeans', 'axinggu@qq.com', 'img/drawing/4.pdf', 'img/project/4-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', NULL, 000000000010, 0000000200, 0000000045, 000000000015, 1, b'0', b'1', b'1', b'1', '2015-03-14 01:50:48', '2015-03-14 01:55:31', '2015-03-14 01:55:05', '2015-05-15 01:54:37'),
-(5, 1, 2, 1, 'male', 'awesome dress', 'axinggu@gmail.com', 'img/drawing/5.pdf', 'img/project/5-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', NULL, 000000000030, 0000000200, 0000000033, 000000000045, 1, b'0', b'1', b'1', b'1', '2015-02-27 03:46:33', '2015-03-14 01:52:27', '2015-01-27 03:48:07', '2015-03-14 01:52:27'),
-(6, 2, 3, 2, 'female', 'comfortable hat', 'axinggu@qq.com', 'img/drawing/6.pdf', 'img/project/6-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', NULL, 000000000010, 0000000200, 0000000045, 000000000015, 1, b'0', b'1', b'1', b'1', '2015-03-14 01:50:48', '2015-03-14 01:55:31', '2015-03-14 01:55:05', '2015-05-15 01:54:37'),
-(7, 1, 2, 1, 'male', 'awesome coat', 'axinggu@gmail.com', 'img/drawing/7.pdf', 'img/project/7-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', NULL, 000000000030, 0000000200, 0000000033, 000000000045, 1, b'0', b'1', b'1', b'1', '2015-02-27 03:46:33', '2015-03-14 01:52:27', '2015-01-27 03:48:07', '2015-03-14 01:52:27'),
-(8, 2, 3, 1, 'female', 'fashin hoodiefashin hoodie', '123@qq.com', 'img/drawing/8.pdf', 'img/project/8-1.jpg', 'this is a comforta', 'cutton 100%', 'No problem fo ', 'design based on human body. make you feel extremely comfortable', NULL, 000000000010, 0000000200, 0000000045, 000000000015, 1, b'0', b'1', b'1', b'1', '2015-03-14 01:50:48', '2015-03-22 16:07:58', '2015-03-14 01:55:05', '2015-05-15 01:54:37'),
-(9, 1, 1, 1, NULL, 'awesome jacket', '321@qq.com', NULL, NULL, 'this is a awesome old style jacket', 'cutton 80% & lather 20%', '123', 'design based on human body. make you feel extremely comfortable', NULL, NULL, 0000000123, 0000000123, NULL, 11, b'0', b'0', b'0', b'0', '2015-03-22 16:27:21', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `project_comment`
---
-
-CREATE TABLE IF NOT EXISTS `project_comment` (
+-- ----------------------------
+-- Table structure for project_comment
+-- ----------------------------
+DROP TABLE IF EXISTS `project_comment`;
+CREATE TABLE `project_comment` (
   `projects_comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projects_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
@@ -211,64 +186,71 @@ CREATE TABLE IF NOT EXISTS `project_comment` (
   `comment_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`projects_comment_id`),
   KEY `comment_projects_fk` (`projects_id`),
-  KEY `comment_users_fk` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  KEY `comment_users_fk` (`user_id`),
+  CONSTRAINT `comment_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `comment_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `project_comment`
---
+-- ----------------------------
+-- Records of project_comment
+-- ----------------------------
 
-INSERT INTO `project_comment` (`projects_comment_id`, `projects_id`, `user_id`, `comment`, `comment_date`) VALUES
-(1, 2, 2, '123123', '2015-03-22 16:00:00');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `project_order`
---
-
-CREATE TABLE IF NOT EXISTS `project_order` (
+-- ----------------------------
+-- Table structure for project_order
+-- ----------------------------
+DROP TABLE IF EXISTS `project_order`;
+CREATE TABLE `project_order` (
   `preject_order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projects_id` int(10) unsigned NOT NULL,
   `users_id` int(10) unsigned NOT NULL,
   `clothes_size_id` int(10) unsigned NOT NULL,
-  `number` int(11) unsigned DEFAULT NULL,
+  `project_order_number` int(11) unsigned DEFAULT NULL,
   `flag_funding` bit(1) DEFAULT NULL,
   `flag_payment` bit(1) DEFAULT NULL,
   `fag_delivery` bit(1) DEFAULT NULL,
-  `deadline` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `comment` varchar(255) DEFAULT NULL,
+  `user_deadline` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `project_order_comment` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`preject_order_id`),
   KEY `order_projects_fk` (`projects_id`),
   KEY `order_users_fk` (`users_id`),
-  KEY `order_clothes_size_id` (`clothes_size_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `order_clothes_size_id` (`clothes_size_id`),
+  CONSTRAINT `order_clothes_size_id` FOREIGN KEY (`clothes_size_id`) REFERENCES `clothes_size` (`clothes_size_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `order_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `order_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of project_order
+-- ----------------------------
 
---
--- 表的结构 `project_preorder`
---
-
-CREATE TABLE IF NOT EXISTS `project_preorder` (
+-- ----------------------------
+-- Table structure for project_preorder
+-- ----------------------------
+DROP TABLE IF EXISTS `project_preorder`;
+CREATE TABLE `project_preorder` (
   `project_preorder_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projects_id` int(10) unsigned NOT NULL,
   `users_id` int(10) unsigned NOT NULL,
   `clothes_size_id` int(10) unsigned NOT NULL,
-  `number` int(10) unsigned DEFAULT NULL,
+  `project_preorder_number` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`project_preorder_id`),
   KEY `preorder_users_fk` (`users_id`),
   KEY `preorder_projects_fk` (`projects_id`),
-  KEY `preorder_clothes_size_fk` (`clothes_size_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `preorder_clothes_size_fk` (`clothes_size_id`),
+  CONSTRAINT `preorder_clothes_size_fk` FOREIGN KEY (`clothes_size_id`) REFERENCES `clothes_size` (`clothes_size_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `preorder_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `preorder_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of project_preorder
+-- ----------------------------
 
---
--- 表的结构 `test`
---
-
-CREATE TABLE IF NOT EXISTS `test` (
+-- ----------------------------
+-- Table structure for test
+-- ----------------------------
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE `test` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `datetime` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -276,117 +258,113 @@ CREATE TABLE IF NOT EXISTS `test` (
   `testcurrent` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `asdf` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=97 ;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `test`
---
+-- ----------------------------
+-- Records of test
+-- ----------------------------
+INSERT INTO `test` VALUES ('1', 'asdf', '2015-02-12 08:52:20', null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('2', 'asdffd', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('3', 'asdffs', null, '2015-02-11 08:54:58', '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('4', 'axinggu', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('5', 'yuxing', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('6', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('7', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('8', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('9', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('10', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('11', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('12', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('13', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('14', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('15', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('16', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('17', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('18', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('19', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('20', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('21', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('22', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('23', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('24', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('25', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('26', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('27', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('28', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('29', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('30', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('31', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('32', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('33', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('34', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('35', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('36', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('37', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('38', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('39', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('40', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('41', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('42', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('43', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('44', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('45', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('46', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('47', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('48', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('49', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('50', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('51', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('52', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('53', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('54', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('55', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('56', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('57', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('58', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('59', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('60', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('61', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('62', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('63', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('64', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('65', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('66', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('67', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('68', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('69', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('70', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('71', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('72', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('73', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('74', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('75', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('76', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('77', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('78', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('79', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('80', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('81', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('82', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('83', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('84', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('85', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('86', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('87', 'testqwqwasd', null, '2015-02-11 09:33:26', '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('88', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('89', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('90', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('91', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('92', 'testtest', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('93', 'test', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('94', 'asdjhfasd', null, null, '2015-02-11 09:28:35', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('95', 'papapa', null, null, '2015-02-11 09:30:41', '2015-02-11 09:32:24');
+INSERT INTO `test` VALUES ('96', 'asdasdasd', '2015-02-11 09:32:43', '2015-02-11 09:33:17', '2015-02-11 09:32:43', '2015-02-11 09:32:43');
 
-INSERT INTO `test` (`id`, `name`, `datetime`, `timestamp`, `testcurrent`, `asdf`) VALUES
-(1, 'asdf', '2015-02-12 08:52:20', NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(2, 'asdffd', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(3, 'asdffs', NULL, '2015-02-11 00:54:58', '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(4, 'axinggu', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(5, 'yuxing', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(6, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(7, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(8, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(9, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(10, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(11, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(12, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(13, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(14, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(15, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(16, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(17, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(18, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(19, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(20, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(21, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(22, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(23, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(24, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(25, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(26, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(27, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(28, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(29, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(30, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(31, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(32, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(33, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(34, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(35, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(36, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(37, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(38, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(39, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(40, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(41, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(42, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(43, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(44, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(45, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(46, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(47, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(48, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(49, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(50, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(51, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(52, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(53, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(54, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(55, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(56, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(57, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(58, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(59, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(60, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(61, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(62, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(63, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(64, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(65, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(66, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(67, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(68, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(69, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(70, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(71, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(72, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(73, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(74, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(75, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(76, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(77, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(78, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(79, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(80, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(81, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(82, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(83, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(84, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(85, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(86, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(87, 'testqwqwasd', NULL, '2015-02-11 01:33:26', '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(88, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(89, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(90, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(91, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(92, 'testtest', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(93, 'test', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(94, 'asdjhfasd', NULL, NULL, '2015-02-11 01:28:35', '2015-02-11 01:32:24'),
-(95, 'papapa', NULL, NULL, '2015-02-11 01:30:41', '2015-02-11 01:32:24'),
-(96, 'asdasdasd', '2015-02-11 09:32:43', '2015-02-11 01:33:17', '2015-02-11 01:32:43', '2015-02-11 01:32:43');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `users_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `users_groups_id` int(10) unsigned NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -413,66 +391,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `flag_accepted` bit(1) DEFAULT b'0',
   `flag_declined` bit(1) DEFAULT b'0',
   PRIMARY KEY (`users_id`,`email`),
-  KEY `users_groups_fk` (`users_groups_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  KEY `users_groups_fk` (`users_groups_id`),
+  CONSTRAINT `users_groups_fk` FOREIGN KEY (`users_groups_id`) REFERENCES `groups` (`groups_id`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `users`
---
-
-INSERT INTO `users` (`users_id`, `users_groups_id`, `email`, `username`, `password`, `lastname`, `firstname`, `about`, `country`, `city`, `address`, `zipcode`, `create_date`, `update_date`, `avatar`, `certificate_file`, `school`, `major`, `cellphone`, `bank_account`, `bank_holder`, `paypal`, `flag_pending`, `flag_accepted`, `flag_declined`) VALUES
-(1, 10, 'axinggu@gmail.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chen2', 'yuxing', 'i am a deisgner college junior student.', 'Italy', 'Milano', 'rubattino, first street, no 19', 20134, '2015-02-27 03:41:50', '2015-03-22 02:20:41', 'img/avatar/1.jpg', NULL, 'Politecnico di Milano', 'design', '3925183033', '6222', 'chan', '123456', b'0', b'1', b'0'),
-(2, 10, 'axinggu@qq.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chan', 'jackie', 'i am a deisgner college junior student.', 'China', 'HongKong', 'central Distrct', 999077, '2015-03-14 01:45:51', '2015-03-22 01:26:37', 'img/avatar/2.jpg', NULL, 'HongKong University', 'design', '3939393939', NULL, NULL, NULL, b'0', b'1', b'0'),
-(4, 12, '0', NULL, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-21 11:41:06', '2015-03-21 13:36:39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0'),
-(5, 12, 'test@qq.com', NULL, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'last', 'first', 'this is about', 'China', 'Guangzhou', 'this is the address', 510410, '2015-03-21 11:50:34', '2015-03-21 13:34:13', 'img/avatar/3.jpg', NULL, 'school', 'major', '1234567890', '1234567890112423', 'jackie chan', NULL, b'0', b'0', b'0'),
-(6, 12, 'test1@qq.com', NULL, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-21 11:51:38', '2015-03-21 13:36:37', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0'),
-(7, 12, 'test33@qq.com', NULL, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-21 11:52:54', '2015-03-21 13:36:35', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0'),
-(8, 12, 'asdf@qq.com', NULL, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-21 13:36:24', '2015-03-21 13:36:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0'),
-(9, 12, 'axinggu1@qq.com', NULL, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-21 14:25:31', '2015-03-22 01:25:51', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0'),
-(11, 12, 'asdf11@qq.com', 'axinggu', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-22 01:24:23', '2015-03-22 01:24:23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0'),
-(12, 12, 'asdf123@qq.com', 'axinggu', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-03-22 02:00:08', '2015-03-22 02:00:08', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'0', b'0', b'0');
-
---
--- 限制导出的表
---
-
---
--- 限制表 `projects`
---
-ALTER TABLE `projects`
-  ADD CONSTRAINT `projects_clothes_style_fk` FOREIGN KEY (`projects_clothes_style_id`) REFERENCES `clothes_style` (`clothes_style_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `projects_clothes_type_fk` FOREIGN KEY (`projects_clothes_type_id`) REFERENCES `clothes_type` (`clothes_type_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `projects_users_fk` FOREIGN KEY (`projects_users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- 限制表 `project_comment`
---
-ALTER TABLE `project_comment`
-  ADD CONSTRAINT `comment_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comment_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- 限制表 `project_order`
---
-ALTER TABLE `project_order`
-  ADD CONSTRAINT `order_clothes_size_id` FOREIGN KEY (`clothes_size_id`) REFERENCES `clothes_size` (`clothes_size_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `order_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- 限制表 `project_preorder`
---
-ALTER TABLE `project_preorder`
-  ADD CONSTRAINT `preorder_clothes_size_fk` FOREIGN KEY (`clothes_size_id`) REFERENCES `clothes_size` (`clothes_size_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `preorder_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `preorder_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- 限制表 `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_groups_fk` FOREIGN KEY (`users_groups_id`) REFERENCES `groups` (`groups_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES ('1', '10', 'axinggu@gmail.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chen2', 'yuxing', 'i am a deisgner college junior student.', 'Italy', 'Milano', 'rubattino, first street, no 19', '20134', '2015-02-27 11:41:50', '2015-03-22 10:20:41', 'img/avatar/1.jpg', null, 'Politecnico di Milano', 'design', '3925183033', '6222', 'chan', '123456', '\0', '', '\0');
+INSERT INTO `users` VALUES ('2', '10', 'axinggu@qq.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chan', 'jackie', 'i am a deisgner college junior student.', 'China', 'HongKong', 'central Distrct', '999077', '2015-03-14 09:45:51', '2015-03-22 09:26:37', 'img/avatar/2.jpg', null, 'HongKong University', 'design', '3939393939', null, null, null, '\0', '', '\0');
+INSERT INTO `users` VALUES ('4', '12', '0', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 19:41:06', '2015-03-21 21:36:39', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('5', '12', 'test@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'last', 'first', 'this is about', 'China', 'Guangzhou', 'this is the address', '510410', '2015-03-21 19:50:34', '2015-03-21 21:34:13', 'img/avatar/3.jpg', null, 'school', 'major', '1234567890', '1234567890112423', 'jackie chan', null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('6', '12', 'test1@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 19:51:38', '2015-03-21 21:36:37', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('7', '12', 'test33@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 19:52:54', '2015-03-21 21:36:35', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('8', '12', 'asdf@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 21:36:24', '2015-03-21 21:36:24', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('9', '12', 'axinggu1@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 22:25:31', '2015-03-22 09:25:51', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('11', '12', 'asdf11@qq.com', 'axinggu', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-22 09:24:23', '2015-03-22 09:24:23', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
+INSERT INTO `users` VALUES ('12', '12', 'asdf123@qq.com', 'axinggu', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-22 10:00:08', '2015-03-22 10:00:08', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
