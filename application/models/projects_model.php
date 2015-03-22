@@ -66,17 +66,17 @@ class Projects_model extends CI_Model
 	 * of clothes like $clothes_type
 	 *
 	 * @access public
-	 * @param string $clothes_type
+	 * @param string $clothes_type_id
 	 * @param integer $offset
 	 * @param integer $limit 
 	 * @param string $order
 	 * @param string $direction
 	 * @return array records 
 	 */
-	public function get_by_clothes_type($clothes_type, $offset = 0, $limit = 0,
+	public function get_by_clothes_type_id($clothes_type_id, $offset = 0, $limit = 0,
 	   	$order = 'clothes_type_id', $direction = 'desc')
 	{
-		if (strlen($clothes_type) <= 0)
+		if ($clothes_type_id <= 0)
 		{
 			return -1;
 		}
@@ -85,7 +85,8 @@ class Projects_model extends CI_Model
 		$this->db->from($this->TABLENAME);
 		$this->db->join('clothes_type', "clothes_type.id = $this->TABLENAME.clothes_type_id");
 		$this->db->join('users', "users.id = $this->TABLENAME.users_id");
-		$this->db->like('clothes_type.name', $clothes_type); 	
+		//$this->db->like('clothes_type.name', $clothes_type); 	
+		$this->db->where('clothes_type.id', $clothes_type_id); 	
 		if (strlen($order) > 0)
 		{
 			$this->db->order_by($order, $direction); 	
@@ -130,10 +131,11 @@ class Projects_model extends CI_Model
 	 * @param string $direction
 	 * @return array records 
 	 */
-	public function get_all($offset = 0, $limit = 0, $order = 'id', $direction = 'desc')
+	public function get_all($offset = 0, $limit = 0, $order = 'projects.id', $direction = 'desc')
 	{
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
+		$this->db->join('users', "users.id = $this->TABLENAME.users_id");
 		if (strlen($order) > 0)
 		{
 			$this->db->order_by($order, $direction); 	
@@ -147,8 +149,7 @@ class Projects_model extends CI_Model
 	}
 
 	/**
-	 * Get a record of projects which id  
-	 * is $id
+	 * insert a record of projects
 	 *
 	 * @access public
 	 * @param array $data 
@@ -172,6 +173,69 @@ class Projects_model extends CI_Model
 		}
 	}
 
+	/**
+	 * Update a record of projects which id  
+	 * is $id using data
+	 *
+	 * @access public
+	 * @param integer $id project_id
+	 * @param array $data 
+	 * @return integer affect row  >= 0 succ, < 0 fail
+	 */
+	public function update_project($id, $data)
+	{
+		$this->db->trans_start();
+
+		$this->db->where('id', $id);
+		$this->db->update($this->TABLENAME, $data); 
+
+		$this->db->trans_complete();
+		if ($this->db->trans_status() === FALSE)
+		{
+			// 生成一条错误信息... 或者使用 log_message() 函数来记录你的错误信息
+			return -1;
+		}
+		else
+		{
+			return $this->db->affected_rows();	
+		}
+	}
+
+	/**
+	 * Delete a record of projects which id  
+	 * is $id
+	 *
+	 * @access public
+	 * @param integer $id
+	 * @return integer affect row  >= 0 succ, < 0 fail
+	 */
+	public function del_project($id)
+	{
+		$this->db->trans_start();
+		
+		$this->db->delete($this->TABLENAME, array('id' => $id)); 
+
+		$this->db->trans_complete();
+		if ($this->db->trans_status() === FALSE)
+		{
+			// 生成一条错误信息... 或者使用 log_message() 函数来记录你的错误信息
+			return -1;
+		}
+		else
+		{
+			return $this->db->affected_rows();	
+		}
+	}
+
+	/**
+	 * Update a record of projects which id  
+	 * is $id using data
+	 *
+	 * @access public
+	 * @param integer $id project_id
+	 * @param array $data 
+	 * @return integer affect row  >= 0 succ, < 0 fail
+	 */
 	public function updata_project($id, $data)
 	{
 		$this->db->trans_start();
