@@ -1,7 +1,4 @@
 <?php
-/*
-test
-*/
 class Projects extends CI_Controller
 {
 	private $SEARCH_BY_TITLE = 1;
@@ -84,11 +81,70 @@ class Projects extends CI_Controller
 		
 	}
 
-	public function modify()
+	//access
+	//index.php/projects/modify/1
+	public function modify($projects_id = 0)
 	{
+		if ($projects_id > 0)
+		{
+			if (!$this->input->post(NULL, TRUE))
+			{
+				$this->load->model('projects_model');		
+				//print_r($projects_id);
+				$tmpdata = $this->projects_model->get_by_id($projects_id);
+				if (count($tmpdata) > 0)
+				{
+					foreach($tmpdata[0] as $key=>$value)
+					{
+						$tmparray[$key] = $value;
+					}
+					$data['rows'][0] = $tmparray;
+				}
+				else
+				{
+					$data = array();
+				}
+				$this->load->view('project_modify_view', $data);
+			}
+			else
+			{
+				$this->load->helper(array('form', 'url'));
 
+				$this->load->library('form_validation');
+				$this->form_validation->set_rules('title', 'Title', 'required');
+				$this->form_validation->set_rules('description', 'Description', 'required');
+				if ($this->form_validation->run() == FALSE)
+				{
+					$tmparray = $this->input->post(NULL, TRUE);
+					$tmparray['projects_id'] = $projects_id;
+					$data['rows'][0] = $tmparray;
+					$this->load->view('project_modify_view', $data);
+				}
+				else
+				{
+					$tmparray = $this->input->post(NULL, TRUE);
+					$tmparray['projects_id'] = $projects_id;
+					$data['rows'][0] = $tmparray;
+
+					$this->load->model('projects_model');		
+					$ret = $this->projects_model->update_project($projects_id, $tmparray);
+					if ($ret >= 0)
+					{
+						$data['exc_flag'] = 1;
+					}
+					else
+					{
+						$data['exc_flag'] = 2;
+					}
+					print_r($data);
+					$this->load->view('project_modify_view', $data);
+				}
+			}
+		}
 	}
 
+	//access
+	//index.php/projects/create/
 	public function create()
 	{
 		print_r($this->input->post(NULL, TRUE));
@@ -105,7 +161,7 @@ class Projects extends CI_Controller
 			$this->form_validation->set_rules('description', 'Description', 'required');
 			/*
 			 * for debug easily
-			$this->form_validation->set_rules('madeof', 'Madeof', 'required');
+			 $this->form_validation->set_rules('madeof', 'Madeof', 'required');
 			$this->form_validation->set_rules('howtowash', 'Howtowash', 'required');
 			$this->form_validation->set_rules('whyme', 'Whyme', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required');
@@ -123,7 +179,7 @@ class Projects extends CI_Controller
 				$this->load->model('projects_model');		
 				$data = $this->input->post(NULL, TRUE);
 				// login do not done
-				$data['users_id'] = 1;
+				$data['projects_users_id'] = 1;
 
 				$ret = $this->projects_model->insert_project($data);
 				if ($ret >= 0)
@@ -141,5 +197,6 @@ class Projects extends CI_Controller
 			}
 		}
 	}
+
 }
 ?>

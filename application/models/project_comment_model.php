@@ -46,7 +46,7 @@ class Project_comment_model extends CI_Model
 	 * @param string $direction
 	 * @return integer count
 	 */
-	public function get_comments_of_project($id, $offset = 0, $limit = 0, $order = 'post_time', $direction = 'desc')
+	public function get_comments_of_project($id, $offset = 0, $limit = 0, $order = 'comment_date', $direction = 'desc')
 	{
 		if ($id <= 0)
 		{
@@ -55,7 +55,7 @@ class Project_comment_model extends CI_Model
 
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
-		$this->db->join('users', "users.id = $this->TABLENAME.user_id");
+		$this->db->join('users', "users.users_id = $this->TABLENAME.user_id");
 		$this->db->where("$this->TABLENAME.projects_id", $id);
 		if (strlen($order) > 0)
 		{
@@ -75,6 +75,7 @@ class Project_comment_model extends CI_Model
 	 *
 	 * @access public
 	 * @param integer $id
+	 * @param integer $projects_id
 	 * @return integer affect row  >= 0 succ, < 0 fail
 	 */
 	public function del_comment_of_project($id, $prodects_id)
@@ -85,7 +86,7 @@ class Project_comment_model extends CI_Model
 		}
 		$this->db->trans_start();
 		
-		$this->db->delete($this->TABLENAME, array('id' => $id, 'projects_id' => $projects_id)); 
+		$this->db->delete($this->TABLENAME, array('projects_comment_id' => $id, 'projects_id' => $projects_id)); 
 
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)

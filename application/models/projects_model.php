@@ -47,7 +47,7 @@ class Projects_model extends CI_Model
 		}
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
-		$this->db->join('users', "users.id = $this->TABLENAME.users_id");
+		$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
 		$this->db->like('title', $title); 	
 		if (strlen($order) > 0)
 		{
@@ -74,7 +74,7 @@ class Projects_model extends CI_Model
 	 * @return array records 
 	 */
 	public function get_by_clothes_type_id($clothes_type_id, $offset = 0, $limit = 0,
-	   	$order = 'clothes_type_id', $direction = 'desc')
+	   	$order = 'projects_clothes_type_id', $direction = 'desc')
 	{
 		if ($clothes_type_id <= 0)
 		{
@@ -83,10 +83,10 @@ class Projects_model extends CI_Model
 
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
-		$this->db->join('clothes_type', "clothes_type.id = $this->TABLENAME.clothes_type_id");
-		$this->db->join('users', "users.id = $this->TABLENAME.users_id");
+		$this->db->join('clothes_type', "clothes_type.clothes_type_id = $this->TABLENAME.projects_clothes_type_id");
+		$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
 		//$this->db->like('clothes_type.name', $clothes_type); 	
-		$this->db->where('clothes_type.id', $clothes_type_id); 	
+		$this->db->where('clothes_type.clothes_type_id', $clothes_type_id); 	
 		if (strlen($order) > 0)
 		{
 			$this->db->order_by($order, $direction); 	
@@ -115,8 +115,8 @@ class Projects_model extends CI_Model
 		}
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
-		$this->db->join('users', "users.id = $this->TABLENAME.users_id");
-		$this->db->where("$this->TABLENAME.id", $id);
+		$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
+		$this->db->where("$this->TABLENAME.projects_id", $id);
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -131,11 +131,11 @@ class Projects_model extends CI_Model
 	 * @param string $direction
 	 * @return array records 
 	 */
-	public function get_all($offset = 0, $limit = 0, $order = 'projects.id', $direction = 'desc')
+	public function get_all($offset = 0, $limit = 0, $order = 'projects.projects_id', $direction = 'desc')
 	{
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
-		$this->db->join('users', "users.id = $this->TABLENAME.users_id");
+		$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
 		if (strlen($order) > 0)
 		{
 			$this->db->order_by($order, $direction); 	
@@ -186,7 +186,7 @@ class Projects_model extends CI_Model
 	{
 		$this->db->trans_start();
 
-		$this->db->where('id', $id);
+		$this->db->where('projects_id', $id);
 		$this->db->update($this->TABLENAME, $data); 
 
 		$this->db->trans_complete();
@@ -213,7 +213,7 @@ class Projects_model extends CI_Model
 	{
 		$this->db->trans_start();
 		
-		$this->db->delete($this->TABLENAME, array('id' => $id)); 
+		$this->db->delete($this->TABLENAME, array('projects_id' => $id)); 
 
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
@@ -240,7 +240,7 @@ class Projects_model extends CI_Model
 	{
 		$this->db->trans_start();
 
-		$this->db->where('id', $id);
+		$this->db->where('projects_id', $id);
 		$this->db->update($this->TABLENAME, $data); 
 
 		$this->db->trans_complete();
