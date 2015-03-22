@@ -37,7 +37,7 @@ class Clothes_type_model extends CI_Model
 	 * @param string $direction
 	 * @return array records 
 	 */
-	public function get_all($offset = 0, $limit = 0, $order = 'name', $direction = 'desc')
+	public function get_all($offset = 0, $limit = 0, $order = 'clothes_type_name', $direction = 'desc')
 	{
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
@@ -52,5 +52,27 @@ class Clothes_type_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	/**
+	 * Get a record which id  
+	 * is $id
+	 *
+	 * @access public
+	 * @param integer $id
+	 * @return array records 
+	 */
+	public function get_by_id($id)
+	{
+		if ($id <= 0)
+		{
+			return -1;
+		}
+		$this->db->select('*');
+		$this->db->from($this->TABLENAME);
+		$this->db->where("$this->TABLENAME.clothes_type_id", $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
 }
 ?>

@@ -87,18 +87,20 @@ if (xmlhttp1.readyState==4)
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('projects/create'); ?>
+<?php if(isset($rows))$r = $rows[0]; ?>
+<?php $projects_id = $r['projects_id']; echo form_open("projects/modify/$projects_id"); ?>
+
 
 <h5>title</h5>
-<input type="text" name="title" value="" size="50" />
+	<input type="text" name="title" value="<?php echo $r['title']; ?>" size="50" />
 
 users_id(from login user)
 projectpic(upload, the same to below)
 
 <h5>type</h5>
 <script type="text/javascript">
-loadXMLDoc("<?php echo base_url();?>"+ "index.php/clothes_type");
-loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style");
+loadXMLDoc("<?php echo base_url();?>"+ "index.php/clothes_type/index/" + <?php echo $r['projects_clothes_type_id'] ?>);
+loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style/index/" + <?php echo $r['projects_clothes_style_id'] ?>);
 </script>
 <div id = "type_id">
 </div>
@@ -112,36 +114,36 @@ loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style");
 <div id = "style_id">
 </div>
 <h5>description</h5>
-<input type="text" name="description" value="<?php echo set_value('description'); ?>" size="50" />
+<input type="text" name="description" value="<?php echo $r['description']; ?>" size="50" />
 
 
 <h5>madeof</h5>
-<input type="text" name="madeof" value="<?php echo set_value('madeof'); ?>" size="50" />
+<input type="text" name="madeof" value="<?php echo $r['madeof']; ?>" size="50" />
 
 <h5>howtowash</h5>
-<input type="text" name="howtowash" value="<?php echo set_value('howtowash'); ?>" size="50" />
+<input type="text" name="howtowash" value="<?php echo $r['howtowash']; ?>" size="50" />
 
 <h5>whyme</h5>
-<input type="text" name="whyme" value="<?php echo set_value('whyme'); ?>" size="50" />
+<input type="text" name="whyme" value="<?php echo $r['whyme'];  ?>" size="50" />
 
 <h5>Email Address</h5>
-<input type="text" name="contact_email" value="<?php echo set_value('contact_email'); ?>" size="50" />
+<input type="text" name="contact_email" value="<?php echo $r['contact_email']; ?>" size="50" />
 
 technical_drawing
 
 <h5>round</h5>
-<input type="text" name="round" value="<?php echo set_value('round'); ?>" size="50" />
+<input type="text" name="round" value="<?php echo $r['round']; ?>" size="50" />
 
 <h5>current_sale</h5>
-<input type="text" name="current_sale" value="<?php echo set_value('current_sale'); ?>" size="50" />
+<input type="text" name="current_sale" value="<?php echo $r['current_sale']; ?>" size="50" />
 
 <h5>minimum_sale</h5>
-<input type="text" name="minimum_sale" value="<?php echo set_value('minimum_sale'); ?>" size="50" />
+<input type="text" name="minimum_sale" value="<?php echo $r['minimum_sale']; ?>" size="50" />
 
 
 <div><input type="submit" value="Submit" /></div>
 
-<?php if(isset($rows) && $rows == 1) echo "succ      asdfasdfasdfasdfasdfasdfasdfasdfasdf";?>
+<?php if(isset($exc_flag) && $exc_flag == 1) echo "succ      asdfasdfasdfasdfasdfasdfasdfasdfasdf";?>
 
 
 </form>

@@ -1,12 +1,15 @@
 <?php 
 foreach ($rows as $row)
 {
-$options[] = array($row->id=>$row->name);
+$options[] = array($row->clothes_style_id=>$row->clothes_style_name);
 
 }
 
 
-echo form_dropdown('clothes_style_id', $options);
+if (isset($choose))
+echo form_dropdown('projects_clothes_style_id', $options, $choose);
+	else
+echo form_dropdown('projects_clothes_style_id', $options);
 
 //print_r($rows);
 ?>

@@ -37,7 +37,7 @@ class Clothes_size_model extends CI_Model
 	 * @param string $direction
 	 * @return array records 
 	 */
-	public function get_all($offset = 0, $limit = 0, $order = 'name', $direction = 'desc')
+	public function get_all($offset = 0, $limit = 0, $order = 'clothes_size_name', $direction = 'desc')
 	{
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
