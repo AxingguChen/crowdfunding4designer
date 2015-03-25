@@ -100,6 +100,65 @@ class Projects_model extends CI_Model
 	}
 
 	/**
+	 * Get records of projects which style
+	 * of clothes like $clothes_style
+	 *
+	 * @access public
+	 * @param string $clothes_style_id
+	 * @param integer $offset
+	 * @param integer $limit
+	 * @param string $order
+	 * @param string $direction
+	 * @return array records
+	 */
+	public function get_by_clothes_style_id($clothes_style_id, $offset = 0, $limit = 0,
+			$order = 'projects_clothes_style_id', $direction = 'desc')
+	{
+		if ($clothes_style_id < 0)
+		{
+			return -1;
+		}
+		//select all if id = 0
+		else if ($clothes_style_id == 0)
+		{
+			$this->db->select('*');
+			$this->db->from($this->TABLENAME);
+			$this->db->join('clothes_style', "clothes_style.clothes_style_id = $this->TABLENAME.projects_clothes_style_id");
+			$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
+			if (strlen($order) > 0)
+			{
+				$this->db->order_by($order, $direction);
+			}
+			if ($limit > 0)
+			{
+				$this->db->limit($limit, $offset);
+			}
+			$query = $this->db->get();
+			return $query->result();
+		}
+			
+		else 
+		{
+			$this->db->select('*');
+			$this->db->from($this->TABLENAME);
+			$this->db->join('clothes_style', "clothes_style.clothes_style_id = $this->TABLENAME.projects_clothes_style_id");
+			$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
+			//$this->db->like('clothes_style.name', $clothes_style);
+			$this->db->where('clothes_style.clothes_style_id', $clothes_style_id);
+			if (strlen($order) > 0)
+			{
+				$this->db->order_by($order, $direction);
+			}
+			if ($limit > 0)
+			{
+				$this->db->limit($limit, $offset);
+			}
+			$query = $this->db->get();
+			return $query->result();
+		}
+	}
+	
+	/**
 	 * Get a record of projects which id  
 	 * is $id
 	 *
@@ -164,7 +223,7 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 生成一条错误信息... 或者使用 log_message() 函数来记录你的错误信息
+			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
@@ -192,7 +251,7 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 生成一条错误信息... 或者使用 log_message() 函数来记录你的错误信息
+			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
@@ -218,7 +277,7 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 生成一条错误信息... 或者使用 log_message() 函数来记录你的错误信息
+			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
@@ -246,7 +305,7 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 生成一条错误信息... 或者使用 log_message() 函数来记录你的错误信息
+			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else

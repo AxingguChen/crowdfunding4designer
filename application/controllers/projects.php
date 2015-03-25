@@ -1,8 +1,10 @@
 <?php
 class Projects extends CI_Controller
 {
+	private $SEARCH_ALL = 0;
 	private $SEARCH_BY_TITLE = 1;
 	private $SEARCH_BY_CLOTHER_TYPE_ID = 2;
+	private $SEARCH_BY_CLOTHER_STYLE_ID = 3;
 
 	public function __construct()
 	{
@@ -34,9 +36,10 @@ class Projects extends CI_Controller
 		$this->load->view('project_view', $data);
 		//comment should by get Asynchronously
 		//here call it due to debug easily
-		$this->comments($projects_id);
+		//$this->comments($projects_id);
+		//front-end read by "print_r($rows);"
 	}
-
+	
 	//access
 	//index.php/projects/comments/2
 	public function comments($projects_id = 0)
@@ -55,11 +58,18 @@ class Projects extends CI_Controller
 	}
 
 	//access
+	//index.php/projects/search/0/0
 	//index.php/projects/search/1/coat
 	//index.php/projects/search/2/2
+	//index.php/projects/search/3/2
 	public function search($search_flag, $search_conent)
 	{
-		if ($search_flag == $this->SEARCH_BY_TITLE)
+		if ($search_flag == $this->SEARCH_ALL)
+		{
+			$this->load->model('projects_model');
+			$data['rows'] = $this->projects_model->get_all();
+		}
+		else if ($search_flag == $this->SEARCH_BY_TITLE)
 		{
 			$this->load->model('projects_model');		
 			$data['rows'] = $this->projects_model->get_by_project_title($search_conent);
@@ -68,6 +78,11 @@ class Projects extends CI_Controller
 		{
 			$this->load->model('projects_model');		
 			$data['rows'] = $this->projects_model->get_by_clothes_type_id($search_conent);
+		}
+		else if ($search_flag == $this->SEARCH_BY_CLOTHER_STYLE_ID)
+		{
+			$this->load->model('projects_model');
+			$data['rows'] = $this->projects_model->get_by_clothes_style_id($search_conent);
 		}
 		else
 		{
@@ -108,7 +123,8 @@ class Projects extends CI_Controller
 			}
 			else
 			{
-				$this->load->helper(array('form', 'url'));
+				//already set auto load in autoload.php
+				//$this->load->helper(array('form', 'url'));
 
 				$this->load->library('form_validation');
 				$this->form_validation->set_rules('title', 'Title', 'required');
@@ -117,16 +133,22 @@ class Projects extends CI_Controller
 				{
 					$tmparray = $this->input->post(NULL, TRUE);
 					$tmparray['projects_id'] = $projects_id;
+					
 					$data['rows'][0] = $tmparray;
 					$this->load->view('project_modify_view', $data);
+					
+					
 				}
 				else
 				{
+					//print_r($this->input->post(NULL, TRUE));
+					//get data from input	
 					$tmparray = $this->input->post(NULL, TRUE);
 					$tmparray['projects_id'] = $projects_id;
 					$data['rows'][0] = $tmparray;
-
-					$this->load->model('projects_model');		
+								
+					//update db
+					$this->load->model('projects_model');
 					$ret = $this->projects_model->update_project($projects_id, $tmparray);
 					if ($ret >= 0)
 					{
@@ -136,25 +158,34 @@ class Projects extends CI_Controller
 					{
 						$data['exc_flag'] = 2;
 					}
-					print_r($data);
+					//print_r($data);
 					$this->load->view('project_modify_view', $data);
+					
+					
 				}
 			}
 		}
 	}
-
+	
+	//projects/upload/1
+	public function upload($projects_id)
+	{
+		
+	}
+	
 	//access
 	//index.php/projects/create/
 	public function create()
 	{
-		print_r($this->input->post(NULL, TRUE));
+		//print_r($this->input->post(NULL, TRUE));
 		if (!$this->input->post(NULL, TRUE))
 		{
 			$this->load->view('project_create_view');
 		}
 		else
 		{
-			$this->load->helper(array('form', 'url'));
+			//autoload
+			//$this->load->helper(array('form', 'url'));
 
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('title', 'Title', 'required');
