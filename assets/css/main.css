@@ -354,6 +354,33 @@ top: -8px;
   color: #fff;
   padding: 5px 17px;
 }
+/*-- work-filter1 */
+.work-filter1 {
+  margin-bottom: 35px;
+}
+
+.work-filter1 ul li {
+    display: inline-block;
+}
+
+.work-filter1 ul li a {
+  color: #062033;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 17px;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.work-filter1 ul li a:hover,
+.work-filter1 ul li a.active {
+  background-color: #0eb493;
+  border-radius: 6px;
+  color: #fff;
+  padding: 5px 17px;
+}
+/*-- end work-filter */
 
 .mix {
     display: none;
