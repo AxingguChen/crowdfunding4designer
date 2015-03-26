@@ -1,6 +1,25 @@
 <?php
 class Users_model extends CI_Model {
 	
+	
+	
+	/**
+	 * select * from users
+	 * return match user
+	 *
+	 * @access public
+	 * @return match user
+	 */
+	function get_all() {
+		// $this -> db -> select('*');
+		$this->db->from ( 'users' );
+		// $this -> db -> limit(1);
+	
+		$query = $this->db->get ();
+		return $query->result ();
+	}
+	
+	
 	/**
 	 * provide login input of email and password
 	 * return user info if match
