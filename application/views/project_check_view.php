@@ -11,9 +11,9 @@
 <!-- Always force latest IE rendering engine or request Chrome Frame -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <!-- Page Title -->
-<title>Update Project</title>
+<title>project</title>
 <!-- Meta Description -->
-<meta name="description" content="home page">
+<meta name="description" content="project page">
 <meta name="keywords"
 	content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
 <meta name="author" content="------------**jackie chen**------------">
@@ -34,6 +34,14 @@
 <!-- Twitter Bootstrap css -->
 <link rel="stylesheet"
 	href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- jquery.fancybox  -->
 <link rel="stylesheet"
 	href="<?php echo base_url();?>assets/css/jquery.fancybox.css">
@@ -46,97 +54,46 @@
 <!-- media-queries -->
 <link rel="stylesheet"
 	href="<?php echo base_url();?>assets/css/media-queries.css">
+<!-- project pic css -->
+<link rel="stylesheet"
+	href="<?php echo base_url();?>assets/css/project.css">
 
 <!-- Modernizer Script for old Browsers -->
 <script src="<?php echo base_url();?>assets/js/modernizr-2.6.2.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/project.js"></script>
+<!-- Image Zoom -->
 
-<!-- ajax for  -->
-<script type="text/javascript">
-var xmlhttp;
-function loadXMLDoc(url)
-{
-xmlhttp=null;
-if (window.XMLHttpRequest)
-  {// code for IE7, Firefox, Opera, etc.
-  xmlhttp=new XMLHttpRequest();
-  }
-else if (window.ActiveXObject)
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-if (xmlhttp!=null)
-  {
-  xmlhttp.onreadystatechange=state_Change;
-  xmlhttp.open("GET",url,true);
-  xmlhttp.send(null);
-  }
-else
-  {
-  alert("Your browser does not support XMLHTTP.");
-  }
-}
+<script
+	src="<?php echo base_url();?>assets/js/jquery-2.1.0.min.js'></script>
+<script 
+	
+	
+	
+	src="<?php echo base_url();?>assets/js/jquery.elevatezoom.js'></script>
 
-function state_Change()
-{
-if (xmlhttp.readyState==4)
-  {// 4 = "loaded"
-  if (xmlhttp.status==200)
-    {// 200 = "OK"
+<!-- Modernizr js -->
+<script 
+	
+	
+	
+	type="text/javascript"
+	src="<?php echo base_url();?>assets/js/modernizr-2.8.0.min.js"></script>
+<!-- Plugins -->
+<script type="text/javascript"
+	src="<?php echo base_url();?>assets/js/plugins.js"></script>
+<!-- Custom JavaScript Functions -->
+<script type="text/javascript"
+	src="<?php echo base_url();?>assets/js/time_functions.js"></script>
 
-    document.getElementById('type_id').innerHTML=xmlhttp.responseText;
-    }
-  else
-    {
-    alert("Problem retrieving XML data:" + xmlhttp.statusText);
-    }
-  }
-}
+<!-- begin foreach -->
+<?php foreach ($rows as $r){?>
 
-var xmlhttp1;
-function loadXMLDoc1(url)
-{
-xmlhttp1=null;
-if (window.XMLHttpRequest)
-  {// code for IE7, Firefox, Opera, etc.
-  xmlhttp1=new XMLHttpRequest();
-  }
-else if (window.ActiveXObject)
-  {// code for IE6, IE5
-  xmlhttp1=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-if (xmlhttp1!=null)
-  {
-  xmlhttp1.onreadystatechange=state_Change1;
-  xmlhttp1.open("GET",url,true);
-  xmlhttp1.send(null);
-  }
-else
-  {
-  alert("Your browser does not support XMLHTTP.");
-  }
-}
-
-function state_Change1()
-{
-if (xmlhttp1.readyState==4)
-  {// 4 = "loaded"
-  if (xmlhttp1.status==200)
-    {// 200 = "OK"
-
-    document.getElementById('style_id').innerHTML=xmlhttp1.responseText;
-    }
-  else
-    {
-    alert("Problem retrieving XML data:" + xmlhttp1.statusText);
-    }
-  }
-}
-</script>
 
 </head>
 
 <body id="body">
-	<!-- begin here -->
+
+
 
 
 	<!-- preloader -->
@@ -171,25 +128,21 @@ if (xmlhttp1.readyState==4)
 				<!-- /logo -->
 			</div>
 
-			<?php echo validation_errors(); ?>
-			<?php if(isset($rows))$r = $rows[0]; ?>
-			<?php $projects_id = $r['projects_id']; echo form_open("projects/modify/$projects_id"); ?>
-			
 			<!-- main nav -->
 			<nav class="collapse navbar-collapse navbar-right" role="navigation">
 				<ul id="nav" class="nav navbar-nav">
-					<li class="current"><a href="#comment">Home</a></li>
-					<li><a href="#detailed">Details</a></li>
-					<li><a href="#upload">Upload</a></li>
-
+					<li><a class="current">Home</a></li>
+					<li><a href="#project">Project</a></li>
+					<li><a href="#detailed">Detailed</a></li>
+					<li><a href="#comment">Comment</a></li>
 				</ul>
 
 				<ul id="nav1" class="nav navbar-nav">
-					<li class="current"><a href="/index.php/users/user_profile">profile</a></li>
+					<li><a href="/index.php/users/user_profile">profile</a></li>
+					<li><a
+						href="/index.php/projects/modify/<?php echo $r->projects_id; ?>">update</a></li>
 					<li><a href="/index.php/projects/create">Create</a></li>
-					<li class="current"><a
-						href="/index.php/projects/project/<?php echo $r['projects_id']; ?>">project</a></li>
-					<li class="current"><a href="/index.php/verification/logout">Logout</a></li>
+					<li><a href="/index.php/verification/logout">Logout</a></li>
 				</ul>
 			</nav>
 			<!-- /main nav -->
@@ -203,106 +156,273 @@ if (xmlhttp1.readyState==4)
 
 
 	<!--
-        Contact Us
+        Some fun facts
         ==================================== -->
 
-	<section id="comment" class="contact">
+	<section id="facts" class="facts">
+		<div class="parallax-overlay">
+			<div class="container"></div>
+		</div>
+	</section>
+
+	<!--
+        End Some fun facts
+        ==================================== -->
+
+
+	<!--
+        checker
+        ==================================== -->
+
+	<section id="#" class="features">
 		<div class="container">
 			<div class="row mb50">
 
-				<div class="sec-title text-center mb50 wow fadeInDown animated"
+				<div class="sec-title text-center mb50 wow bounceInDown animated"
 					data-wow-duration="500ms">
-					<h2>Let’s Discuss</h2>
+					<h2>Pending project</h2>
 					<div class="devider">
 						<i class="fa fa-heart-o fa-lg"></i>
 					</div>
 				</div>
+				<?php echo form_open("projects/project_check_update/$r->projects_id"); ?>
+				<!-- service item -->
+				<div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
+					<div class="service-item">
+						<div class="service-icon">
+							<i class="fa fa-recycle fa-2x"></i>
+						</div>
 
-				<div class="sec-sub-title text-center wow rubberBand animated"
-					data-wow-duration="1000ms">
-					<p>Welcome for any questions and suggestions</p>
-				</div>
-
-
-
-				<!-- contact form -->
-				<div class="text-center wow fadeInDown  text-center animated"
-					data-wow-duration="500ms" data-wow-delay="300ms">
-					<div class="contact-form">
-						<h3>update</h3>
-
-
-						<div class="input-group row title-email">
-
-
-							<div class="input-text-field col-md-1">Title:</div>
-							<div class="input-field col-md-5">
-								<input type="text" name="title" id="title"
-									value="<?php echo $r['title']; ?>" placeholder="@title"
+						<div class="service-desc">
+							<h3>Cost</h3>
+							<p>
+								<input type="text" name="cost" id="cost"
+									value="<?php echo $r->title;?>" placeholder="cost"
 									class="form-control">
-							</div>
-							<div class="input-text-field col-md-1">Email:</div>
-							<div class="input-field col-md-5">
-								<input type="text" name="contact_email" id="contact_email"
-									value="<?php echo $r['contact_email']; ?>" placeholder="@email"
-									class="form-control">
-							</div>
-
+							</p>
 						</div>
-
-						<div class="input-group row type-sex">
-
-							<div class="input-text-field col-md-1">Type:</div>
-							<div class="input-field col-md-5">
-								<script type="text/javascript">
-									loadXMLDoc("<?php echo base_url();?>"+ "index.php/clothes_type/index/" + <?php echo $r['projects_clothes_type_id'] ?>);
-									loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style/index/" + <?php echo $r['projects_clothes_style_id'] ?>);
-								</script>
-								<div id="type_id"></div>
-							</div>
-							<div class="input-text-field col-md-1">Style:</div>
-							<div class="input-field col-md-5">
-								<script type="text/javascript">
-									loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style");
-								</script>
-								<div id="style_id"></div>
-							</div>
-						</div>
-
-						<div class="input-group row title-email">
-
-
-							<div class="input-text-field col-md-1">Sex:</div>
-							<div class="input-field col-md-5">
-								<input type="text" name="sex" id="sex"
-									value="<?php echo $r['sex']; ?>" placeholder="@sex"
-									class="form-control">
-							</div>
-
-						</div>
-
-						<div class="input-group row">
-							<div class="col-md-1">Description:</div>
-							<div class="col-md-10">
-								<textarea name="description" id="description"
-									placeholder="Description" class="form-control"><?php echo $r['description']; ?></textarea>
-							</div>
-						</div>
-
-
-
 					</div>
 				</div>
-				<!-- end contact form -->
+				<!-- end service item -->
 
+				<!-- service item -->
+				<div class="col-md-4 wow fadeInUp" data-wow-duration="500ms"
+					data-wow-delay="500ms">
+					<div class="service-item">
+						<div class="service-icon">
+							<i class="fa fa-pencil fa-2x"></i>
+						</div>
+
+						<div class="service-desc">
+							<h3>Minimum sale</h3>
+							<p>
+								<input type="text" name="minimum_sale" id="minimum_sale"
+									placeholder="minimum_sale" value="<?php echo $r->minimum_sale;?>"
+									class="form-control">
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- end service item -->
+
+				<!-- service item -->
+				<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"
+					data-wow-delay="900ms">
+					<div class="service-item">
+						<div class="service-icon">
+							<i class="fa fa-bullhorn fa-2x"></i>
+						</div>
+
+						<div class="service-desc">
+							<h3>projects_comment</h3>
+							<input type="text" name="projects_comment" id="projects_comment" placeholder="project comment for user"
+								value="<?php echo $r->projects_comment;?>" class="form-control">
+						</div>
+					</div>
+				</div>
+				
 			</div>
+			<!-- contact form -->
+			<div class="text-center wow fadeInDown  text-center animated"
+				data-wow-duration="500ms" data-wow-delay="300ms">
+				<div class="contact-form">
+					<div class="input-group">
+						<input type="submit" id="form-submit" class="pull-right"
+							value="Pass project">
+					</div>
+
+				</div>
+			</div>
+			<!-- end contact form -->
+			<!-- end service item -->
+				<?php echo form_close(); ?>
+			<div class="sec-sub-title text-center wow rubberBand animated"
+					data-wow-duration="1000ms">
+					<p><?php if(isset($exc_flag) && $exc_flag == 1) echo "Update Succeed";?></p>
+			</div>
+				
 		</div>
 
 	</section>
 
 	<!--
-        End Contact Us
+        End checker
         ==================================== -->
+
+	<!--
+        Our Works
+        ==================================== -->
+
+	<section id="project" class="works">
+		<div class="container">
+			<div class="row">
+
+				<div class="sec-title text-center">
+					<h2><?php echo $r->title;?>
+				
+				</h2>
+					<div class="devider">
+						<i class="fa fa-heart-o fa-lg"></i>
+					</div>
+				</div>
+
+				<!-- start of row -->
+				<div class="row">
+
+					<div class="project-wrapper col-md-5">
+						<figure class="mix work-item-project">
+							<img id="zoom_01"
+								src='<?php echo base_url();?>assets/img/zoom_images/small/image1.png'
+								data-zoom-image="<?php echo base_url();?>assets/img/zoom_images/large/image1.jpg" />
+						</figure>
+
+						<script>
+								$('#zoom_01').elevateZoom({
+							    zoomType: "inner",
+							cursor: "crosshair",
+							scrollZoom: true,
+							zoomWindowFadeIn: 500,
+							zoomWindowFadeOut: 750
+							   }); 
+								</script>
+
+
+					</div>
+
+					<div class="text-center col-md-7">
+						<br />
+						<p><?php echo $r->description;?></p>
+						<p>@round: <?php echo $r->round;?></p>
+						<p>@price: <?php echo $r->price;?></p>
+						<div class="work-filter1 wow fadeInUp animated"
+							data-wow-duration="500ms">
+							<button type="button" data-toggle="dropdown"
+								class="btn dropdown-toggle">
+								size<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">xs</a></li>
+								<li><a href="#">s</a></li>
+								<li><a href="#">m</a></li>
+								<li><a href="#">l</a></li>
+								<li><a href="#">xl</a></li>
+								<li><a href="#">xxl</a></li>
+								<li><a href="#">xxxl</a></li>
+								<li class="divider"></li>
+								<li><a href="#">xxxxl</a></li>
+							</ul>
+						</div>
+						<div class="work-filter1 wow fadeInUp animated"
+							data-wow-duration="500ms">
+
+							<ul class="text-center">
+								<li><a href="#" class="">Buy</a></li>
+								<li><a href="#" class="">Cart</a></li>
+							</ul>
+						</div>
+
+						<div class="row number-counters">
+							<!-- split -->
+							<div id="time_countdown" class="time-count-container">
+
+								<div class="col-sm-3">
+									<div class="time-box">
+										<div class="time-box-inner dash days_dash animated"
+											data-animation="rollIn" data-animation-delay="300">
+											<span class="time-number"> <span class="digit">0</span> <span
+												class="digit">0</span> <span class="digit">0</span>
+											</span> <span class="time-name">Days</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-3">
+									<div class="time-box">
+										<div class="time-box-inner dash hours_dash animated"
+											data-animation="rollIn" data-animation-delay="600">
+											<span class="time-number"> <span class="digit">0</span> <span
+												class="digit">0</span>
+											</span> <span class="time-name">Hours</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-3">
+									<div class="time-box">
+										<div class="time-box-inner dash minutes_dash animated"
+											data-animation="rollIn" data-animation-delay="900">
+											<span class="time-number"> <span class="digit">0</span> <span
+												class="digit">0</span>
+											</span> <span class="time-name">Minutes</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-3">
+									<div class="time-box">
+										<div class="time-box-inner dash seconds_dash animated"
+											data-animation="rollIn" data-animation-delay="1200">
+											<span class="time-number"> <span class="digit">0</span> <span
+												class="digit">0</span>
+											</span> <span class="time-name">Seconds</span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- /.time-count-container -->
+							<!-- split -->
+
+
+
+						</div>
+
+					</div>
+
+
+
+
+
+				</div>
+				<!-- end of row -->
+				<br />
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $r->current_sale/$r->minimum_sale*100;?>% ">
+					      <?php echo $r->current_sale;?> Complete
+					    </div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</section>
+	<!--
+        End Our Works
+        ==================================== -->
+
+
+
 
 
 
@@ -313,7 +433,7 @@ if (xmlhttp1.readyState==4)
 
 	<section id="detailed" class="features">
 		<div class="container">
-			<div class="row mb50">
+			<div class="row">
 
 				<div class="sec-title text-center mb50 wow bounceInDown animated"
 					data-wow-duration="500ms">
@@ -332,11 +452,9 @@ if (xmlhttp1.readyState==4)
 
 						<div class="service-desc">
 							<h3>Made Of</h3>
-							<p>
-								<input type="text" name="madeof" id="madeof"
-									value="<?php echo $r['madeof']; ?>" placeholder="madeof"
-									class="form-control">
-							</p>
+							<p> 
+								<?php echo $r->madeof;?>  
+								</p>
 						</div>
 					</div>
 				</div>
@@ -352,11 +470,7 @@ if (xmlhttp1.readyState==4)
 
 						<div class="service-desc">
 							<h3>How To Wash</h3>
-							<p>
-								<input type="text" name="howtowash" id="howtowash"
-									placeholder="howtowash" value="<?php echo $r['howtowash']; ?>"
-									class="form-control">
-							</p>
+							<p><?php echo $r->howtowash;?> </p>
 						</div>
 					</div>
 				</div>
@@ -372,88 +486,22 @@ if (xmlhttp1.readyState==4)
 
 						<div class="service-desc">
 							<h3>Why Me</h3>
-							<input type="text" name="whyme" id="whyme" placeholder="whyme"
-								value="<?php echo $r['whyme']; ?>" class="form-control">
+							<p><?php echo $r->whyme;?> </p>
 						</div>
 					</div>
 				</div>
 				<!-- end service item -->
 
 			</div>
-			<!-- contact form -->
-			<div class="text-center wow fadeInDown  text-center animated"
-				data-wow-duration="500ms" data-wow-delay="300ms">
-				<div class="contact-form">
-					<div class="input-group">
-						<input type="submit" id="form-submit" class="pull-right"
-							value="Update project">
-					</div>
-								
-						</dFiv>
-				</div>
-				<!-- end contact form -->
-			</div>
-			<?php echo form_close(); ?>
-			<div class="sec-sub-title text-center wow rubberBand animated"
-					data-wow-duration="1000ms">
-					<p><?php if(isset($exc_flag) && $exc_flag == 1) echo "Update Succeed";?></p>
-			</div>
+		</div>
 	</section>
-
-	<!--
+	<!-- end of foreach -->
+		<?php } ?>
+        <!--
         End Features
         ==================================== -->
 
 
-	<!--
-        Our Works
-        ==================================== -->
-
-	<section id="upload" class="works clearfix">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center">
-					<h2>Update File</h2>
-					<div class="devider">
-						<i class="fa fa-heart-o fa-lg"></i>
-					</div>
-				</div>
-
-				<div class="sec-sub-title text-center">
-					<p>We are recommened the most popular projects with different style
-						as follow.</p>
-				</div>
-
-				<!-- contact address -->
-				<div class="sec-sub-title text-center">
-					<h3>upload</h3>
-					<p>upload file here</p>
-
-					<?php //echo $error;?>
-					<?php echo form_open_multipart('projects/upload/1');?>
-					<input type="file" name="technical_drawing" size="20" /> 
-					<br /> <br />
-					<input type="submit" value="upload" />
-					</form>
-
-				</div>
-				<!-- end contact address -->
-
-
-
-			</div>
-		</div>
-
-
-
-
-
-	</section>
-
-	<!--
-        End Our Works
-        ==================================== -->
 
 
 
@@ -514,7 +562,7 @@ if (xmlhttp1.readyState==4)
 			<div class="row">
 				<div class="col-md-12">
 					<p class="copyright text-center">
-						Copyright @ 2015 <a href="http://themefisher.com/">Themefisher</a>.
+						Copyright © 2015 <a href="http://themefisher.com/">Themefisher</a>.
 						All rights reserved. Designed & developed by <a
 							href="http://themefisher.com/">Themefisher</a>
 					</p>
@@ -546,14 +594,6 @@ if (xmlhttp1.readyState==4)
 	<script src="<?php echo base_url();?>assets/js/jquery-countTo.js"></script>
 	<!-- jquery.appear -->
 	<script src="<?php echo base_url();?>assets/js/jquery.appear.js"></script>
-	<!-- Contact form validation -->
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
-	<!-- Google Map -->
-	<script type="text/javascript"
-		src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<!-- jquery easing -->
 	<script src="<?php echo base_url();?>assets/js/jquery.easing.min.js"></script>
 	<!-- jquery easing -->
@@ -574,6 +614,8 @@ if (xmlhttp1.readyState==4)
 
 	<script type="text/javascript">
 			$(function(){
+				
+
 				/* ========================================================================= */
 				/*	Contact Form
 				/* ========================================================================= */
@@ -630,4 +672,3 @@ if (xmlhttp1.readyState==4)
 		</script>
 </body>
 </html>
-

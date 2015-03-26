@@ -439,7 +439,7 @@ $(document).ready(function(){
 					<div class="sec-sub-title text-center wow rubberBand animated"
 						data-wow-duration="1000ms">
 						<div class="input-field">
-							<div id="project_comment"></div>
+							<div class="project_comment"><nav id="project_comment"></nav></div>
 						</div>
 					</div>
 

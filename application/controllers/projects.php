@@ -19,7 +19,71 @@ class Projects extends CI_Controller
 		$data['rows'] = $this->projects_model->get_all();
 		$this->load->view('projects_view', $data);
 	}
-
+	
+	//access
+	//index.php/projects/projects_check
+	public function projects_check()
+	{
+		$this->load->model('projects_model');
+		$data['rows'] = $this->projects_model->get_all();
+		$this->load->view('projects_check_view', $data);
+	}
+	
+	//access
+	//index.php/projects/project_check/1
+	public function project_check($projects_id = 1)
+	{
+		if ($projects_id > 0)
+		{
+			$this->load->model('projects_model');
+			$data['rows'] = $this->projects_model->get_by_id($projects_id);
+		}
+		else
+		{
+			$data['rows'] = array();
+		}
+		$this->load->view('project_check_view', $data);
+		//comment should by get Asynchronously
+		//here call it due to debug easily
+		//$this->comments($projects_id);
+		//front-end read by "print_r($rows);"
+	}
+	
+	//access
+	//index.php/projects/project_check/1
+	public function project_check_update($projects_id = 1)
+	{
+		$tmparray = $this->input->post(NULL, TRUE);
+		$tmparray['projects_id'] = $projects_id;		
+		//update db
+		$this->load->model('projects_model');
+		$ret = $this->projects_model->update_project($projects_id, $tmparray);
+		if ($ret >= 0)
+		{
+			$data['exc_flag'] = 1;
+		}
+		else
+		{
+			$data['exc_flag'] = 2;
+		}
+		//print_r($data);
+		
+		if ($projects_id > 0)
+		{
+			$this->load->model('projects_model');
+			$data['rows'] = $this->projects_model->get_by_id($projects_id);
+		}
+		else
+		{
+			$data['rows'] = array();
+		}
+		$this->load->view('project_check_view', $data);
+		//comment should by get Asynchronously
+		//here call it due to debug easily
+		//$this->comments($projects_id);
+		//front-end read by "print_r($rows);"
+	}
+	
 	//access
 	//index.php/projects/project/1
 	public function project($projects_id = 1)
@@ -170,7 +234,36 @@ class Projects extends CI_Controller
 	//projects/upload/1
 	public function upload($projects_id)
 	{
+		$file_name =  $projects_id.'.pdf';
 		
+		
+		$config['file_name'] = $file_name;
+		$config['upload_path'] = './assets/test';
+		$config['allowed_types'] = 'gif|jpg|png|txt|pdf';
+		$config['max_size']	= '1000';
+		//$config['max_width']  = '1024';
+		//$config['max_height']  = '768';
+		$config['overwrite'] = true;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload())
+		{
+			$error = array('error' => $this->upload->display_errors());
+
+			$this->load->view('upload_view', $error);
+		}
+		else
+		{
+			$data = array('upload_data' => $this->upload->data());
+
+			$this->load->view('upload_success', $data);
+		}
+	
+		$tmparray['technical_drawing'] = './assets/img/project/'.$projects_id.'.pdf';
+		//update db
+		$this->load->model('projects_model');
+		$ret = $this->projects_model->update_project($projects_id, $tmparray);
 	}
 	
 	//access

@@ -296,51 +296,6 @@ if (xmlhttp1.readyState==4)
         End Contact Us
         ==================================== -->
 
-
-
-	<!--
-        Our Works
-        ==================================== -->
-
-	<section id="upload" class="works clearfix">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center">
-					<h2>Create Project</h2>
-					<div class="devider">
-						<i class="fa fa-heart-o fa-lg"></i>
-					</div>
-				</div>
-
-				<div class="sec-sub-title text-center">
-					<p>We are recommened the most popular projects with different style
-						as follow.</p>
-				</div>
-
-				<!-- contact address -->
-				<div class="sec-sub-title text-center">
-					<h3>upload</h3>
-					<p>upload file here</p>
-					<input type="file" name="userfile" size="20" />
-				</div>
-				<!-- end contact address -->
-
-
-
-			</div>
-		</div>
-
-
-
-
-
-	</section>
-
-	<!--
-        End Our Works
-        ==================================== -->
-
 	<!--
         Features
         ==================================== -->
