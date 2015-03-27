@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-03-22 18:44:40
+Date: 2015-03-27 11:41:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -140,10 +140,10 @@ CREATE TABLE `projects` (
   `howtowash` varchar(255) DEFAULT NULL,
   `whyme` varchar(255) DEFAULT NULL,
   `projects_comment` varchar(255) DEFAULT NULL,
-  `cost` float unsigned zerofill DEFAULT NULL,
-  `minimum_sale` int(10) unsigned zerofill DEFAULT NULL,
-  `current_sale` int(10) unsigned zerofill DEFAULT NULL,
-  `price` float unsigned zerofill DEFAULT NULL,
+  `cost` float unsigned DEFAULT NULL,
+  `minimum_sale` int(10) unsigned DEFAULT NULL,
+  `current_sale` int(10) unsigned DEFAULT NULL,
+  `price` float unsigned DEFAULT NULL,
   `round` tinyint(4) DEFAULT NULL,
   `flag_close` bit(1) DEFAULT b'0',
   `flag_publish` bit(1) DEFAULT b'0',
@@ -160,40 +160,48 @@ CREATE TABLE `projects` (
   CONSTRAINT `projects_clothes_style_fk` FOREIGN KEY (`projects_clothes_style_id`) REFERENCES `clothes_style` (`clothes_style_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `projects_clothes_type_fk` FOREIGN KEY (`projects_clothes_type_id`) REFERENCES `clothes_type` (`clothes_type_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `projects_users_fk` FOREIGN KEY (`projects_users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of projects
 -- ----------------------------
-INSERT INTO `projects` VALUES ('1', '1', '2', '1', 'male', 'awesome jacket', 'axinggu@gmail.com', 'img/drawing/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
-INSERT INTO `projects` VALUES ('2', '2', '3', '2', 'female', 'comfortable underwear', 'axinggu@qq.com', 'img/drawing/1.pdf', 'img/project/2-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
-INSERT INTO `projects` VALUES ('3', '1', '2', '1', 'male', 'awesome shirt', 'axinggu@gmail.com', 'img/drawing/3.pdf', 'img/project/3-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
-INSERT INTO `projects` VALUES ('4', '2', '3', '2', 'female', 'comfortable jeans', 'axinggu@qq.com', 'img/drawing/4.pdf', 'img/project/4-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
-INSERT INTO `projects` VALUES ('5', '1', '2', '1', 'male', 'awesome dress', 'axinggu@gmail.com', 'img/drawing/5.pdf', 'img/project/5-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
-INSERT INTO `projects` VALUES ('6', '2', '3', '2', 'female', 'comfortable hat', 'axinggu@qq.com', 'img/drawing/6.pdf', 'img/project/6-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
-INSERT INTO `projects` VALUES ('7', '1', '2', '1', 'male', 'awesome coat', 'axinggu@gmail.com', 'img/drawing/7.pdf', 'img/project/7-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '000000000030', '0000000200', '0000000033', '000000000045', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
-INSERT INTO `projects` VALUES ('8', '2', '3', '2', 'female', 'fashin hoodie', 'axinggu@qq.com', 'img/drawing/8.pdf', 'img/project/8-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '000000000010', '0000000200', '0000000045', '000000000015', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('1', '1', '8', '1', 'female', 'awesome jacket', 'axinggu@gmail.com', './assets/img/project/1.pdf', 'img/project/1-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', 'need more detailed about prototype', '0', '200', '33', '45', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-26 19:17:56', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('2', '2', '3', '2', 'female', 'comfortable underwear', 'axinggu@qq.com', 'img/drawing/2.pdf', 'img/project/2-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '10', '200', '45', '15', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-25 00:06:01', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('3', '1', '2', '1', 'male', 'awesome shirt', 'axinggu@gmail.com', 'img/drawing/3.pdf', 'img/project/3-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '30', '200', '33', '45', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('4', '2', '3', '2', 'female', 'comfortable jeans', 'axinggu@qq.com', 'img/drawing/4.pdf', 'img/project/4-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '10', '200', '45', '15', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('5', '1', '2', '1', 'male', 'awesome dress', 'axinggu@gmail.com', 'img/drawing/5.pdf', 'img/project/5-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '30', '200', '33', '45', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('6', '2', '3', '2', 'female', 'comfortable hat', 'axinggu@qq.com', 'img/drawing/6.pdf', 'img/project/6-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '10', '200', '45', '15', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('7', '1', '2', '1', 'male', 'awesome coat', 'axinggu@gmail.com', 'img/drawing/7.pdf', 'img/project/7-1.jpg', 'this is a awesome old style jacket', 'cutton 80% & lather 20%', 'The water temperature should be under 45 C degrees. Hand wash is recommended.', 'Fashionable design, nice color and unique style', null, '30', '200', '33', '45', '1', '\0', '', '', '', '2015-02-27 11:46:33', '2015-03-14 09:52:27', '2015-01-27 11:48:07', '2015-03-14 09:52:27');
+INSERT INTO `projects` VALUES ('8', '2', '3', '2', 'female', 'fashin hoodie', 'axinggu@qq.com', 'img/drawing/8.pdf', 'img/project/8-1.jpg', 'this is a comfortable underwear', 'cutton 100%', 'No problem for any way to wash', 'design based on human body. make you feel extremely comfortable', null, '10', '200', '45', '15', '1', '\0', '', '', '', '2015-03-14 09:50:48', '2015-03-14 09:55:31', '2015-03-14 09:55:05', '2015-05-15 09:54:37');
+INSERT INTO `projects` VALUES ('9', '1', '8', '4', null, '1asdfsadf', 'asdfhi@qq.com', null, null, 'asdfasdfasdf', 'asdfasdf', 'asdfasdf', 'asdfasdf', null, null, '200', '0', null, '1', '\0', '\0', '\0', '\0', '2015-03-23 19:39:01', null, null, null);
+INSERT INTO `projects` VALUES ('10', '1', '30', '2', 'male', 'adfasdfasdf', 'asdffdas@qq.com', null, null, 'this is description', 'madeof', 'howtowash', 'whyme', null, null, null, null, null, null, '\0', '\0', '\0', '\0', '2015-03-23 20:32:26', null, null, null);
+INSERT INTO `projects` VALUES ('11', '1', '30', '2', 'male', 'adfasdfasdf', 'asdffdas@qq.com', null, null, 'this is description', 'madeof', 'howtowash', 'whyme', null, null, null, null, null, null, '\0', '\0', '\0', '\0', '2015-03-23 20:32:55', null, null, null);
+INSERT INTO `projects` VALUES ('12', '1', '30', '2', 'male', 'adfasdfasdf', 'asdffdas@qq.com', null, null, 'this is description', 'madeof', 'howtowash', 'whyme', null, null, null, null, null, null, '\0', '\0', '\0', '\0', '2015-03-23 20:33:20', null, null, null);
+INSERT INTO `projects` VALUES ('13', '1', '30', '2', 'male', 'adfasdfasdf', 'asdffdas@qq.com', null, null, 'this is description', 'madeof', 'howtowash', 'whyme', null, null, null, null, null, null, '\0', '\0', '\0', '\0', '2015-03-23 20:33:23', null, null, null);
+INSERT INTO `projects` VALUES ('14', '1', '30', '2', 'male', 'adfasdfasdf', 'asdffdas@qq.com', null, null, 'this is description', 'madeof', 'howtowash', 'whyme', null, null, null, null, null, null, '\0', '\0', '\0', '\0', '2015-03-23 20:33:47', null, null, null);
 
 -- ----------------------------
 -- Table structure for project_comment
 -- ----------------------------
 DROP TABLE IF EXISTS `project_comment`;
 CREATE TABLE `project_comment` (
-  `projects_comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `project_comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projects_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `comment` varchar(255) DEFAULT NULL,
   `comment_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`projects_comment_id`),
+  PRIMARY KEY (`project_comment_id`),
   KEY `comment_projects_fk` (`projects_id`),
   KEY `comment_users_fk` (`user_id`),
   CONSTRAINT `comment_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `comment_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of project_comment
 -- ----------------------------
+INSERT INTO `project_comment` VALUES ('1', '1', '1', 'say something', '2015-03-22 21:56:22');
+INSERT INTO `project_comment` VALUES ('2', '1', '2', 'awesome product', '2015-03-22 21:57:02');
 
 -- ----------------------------
 -- Table structure for project_order
@@ -210,6 +218,7 @@ CREATE TABLE `project_order` (
   `fag_delivery` bit(1) DEFAULT NULL,
   `user_deadline` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `project_order_comment` varchar(255) DEFAULT NULL,
+  `project_order_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`preject_order_id`),
   KEY `order_projects_fk` (`projects_id`),
   KEY `order_users_fk` (`users_id`),
@@ -233,6 +242,7 @@ CREATE TABLE `project_preorder` (
   `users_id` int(10) unsigned NOT NULL,
   `clothes_size_id` int(10) unsigned NOT NULL,
   `project_preorder_number` int(10) unsigned DEFAULT NULL,
+  `project_preorder_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`project_preorder_id`),
   KEY `preorder_users_fk` (`users_id`),
   KEY `preorder_projects_fk` (`projects_id`),
@@ -240,11 +250,12 @@ CREATE TABLE `project_preorder` (
   CONSTRAINT `preorder_clothes_size_fk` FOREIGN KEY (`clothes_size_id`) REFERENCES `clothes_size` (`clothes_size_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `preorder_projects_fk` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`projects_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `preorder_users_fk` FOREIGN KEY (`users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of project_preorder
 -- ----------------------------
+INSERT INTO `project_preorder` VALUES ('1', '1', '1', '2', '2', '2015-03-27 11:24:15');
 
 -- ----------------------------
 -- Table structure for test
@@ -398,8 +409,8 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '10', 'axinggu@gmail.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chen2', 'yuxing', 'i am a deisgner college junior student.', 'Italy', 'Milano', 'rubattino, first street, no 19', '20134', '2015-02-27 11:41:50', '2015-03-22 10:20:41', 'img/avatar/1.jpg', null, 'Politecnico di Milano', 'design', '3925183033', '6222', 'chan', '123456', '\0', '', '\0');
-INSERT INTO `users` VALUES ('2', '10', 'axinggu@qq.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chan', 'jackie', 'i am a deisgner college junior student.', 'China', 'HongKong', 'central Distrct', '999077', '2015-03-14 09:45:51', '2015-03-22 09:26:37', 'img/avatar/2.jpg', null, 'HongKong University', 'design', '3939393939', null, null, null, '\0', '', '\0');
+INSERT INTO `users` VALUES ('1', '10', 'axinggu@gmail.com', 'axinggu', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'chen', 'yuxing', 'i am a deisgner college junior student.1', 'Italy', 'Milano', 'rubattino, first street, no 19', '20134', '2015-02-27 11:41:50', '2015-03-26 23:01:35', 'img/avatar/1.jpg', null, 'Politecnico di Milano', 'design', '3925183033', '62222', 'chan', '123456', '\0', '', '\0');
+INSERT INTO `users` VALUES ('2', '10', 'axinggu@qq.com', 'jackie', 'b6692ea5df920cad691c20319a6fffd7a4a766b8', 'peng', 'jackie', 'i am a deisgner college junior student.', 'China', 'HongKong', 'central Distrct', '999077', '2015-03-14 09:45:51', '2015-03-22 22:08:03', 'img/avatar/2.jpg', null, 'HongKong University', 'design', '3939393939', null, null, null, '\0', '', '\0');
 INSERT INTO `users` VALUES ('4', '12', '0', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 19:41:06', '2015-03-21 21:36:39', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
 INSERT INTO `users` VALUES ('5', '12', 'test@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'last', 'first', 'this is about', 'China', 'Guangzhou', 'this is the address', '510410', '2015-03-21 19:50:34', '2015-03-21 21:34:13', 'img/avatar/3.jpg', null, 'school', 'major', '1234567890', '1234567890112423', 'jackie chan', null, '\0', '\0', '\0');
 INSERT INTO `users` VALUES ('6', '12', 'test1@qq.com', null, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', null, null, null, null, null, null, null, '2015-03-21 19:51:38', '2015-03-21 21:36:37', null, null, null, null, null, null, null, null, '\0', '\0', '\0');
