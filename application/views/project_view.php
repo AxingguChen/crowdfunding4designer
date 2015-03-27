@@ -66,10 +66,18 @@
 <script
 	src="<?php echo base_url();?>assets/js/jquery-2.1.0.min.js'></script>
 <script 
+	
+	
+	
+	
 	src="<?php echo base_url();?>assets/js/jquery.elevatezoom.js'></script>
 
 <!-- Modernizr js -->
 <script 
+	
+	
+	
+	
 	type="text/javascript"
 	src="<?php echo base_url();?>assets/js/modernizr-2.8.0.min.js"></script>
 <!-- Plugins -->
@@ -185,6 +193,11 @@ $(document).ready(function(){
 					</div>
 				</div>
 
+				<div class="sec-sub-title text-center wow rubberBand animated"
+					data-wow-duration="1000ms">
+					<p>Project Introduction</p>
+				</div>
+
 				<!-- start of row -->
 				<div class="row">
 
@@ -208,38 +221,64 @@ $(document).ready(function(){
 
 					</div>
 
-					<div class="text-center col-md-7">
-						<br />
-						<p><?php echo $r->description;?></p>
-						<p>@round: <?php echo $r->round;?></p>
-						<p>@price: <?php echo $r->price;?></p>
-						<div class="work-filter1 wow fadeInUp animated"
-							data-wow-duration="500ms">
-								<button type="button" data-toggle="dropdown"
-									class="btn dropdown-toggle">
-									size<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">xs</a></li>
-									<li><a href="#">s</a></li>
-									<li><a href="#">m</a></li>
-									<li><a href="#">l</a></li>
-									<li><a href="#">xl</a></li>
-									<li><a href="#">xxl</a></li>
-									<li><a href="#">xxxl</a></li>
-									<li class="divider"></li>
-									<li><a href="#">xxxxl</a></li>
-								</ul>
-						</div>
-						<div class="work-filter1 wow fadeInUp animated"
-							data-wow-duration="500ms">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col-md-9">
+								<div class="sec-sub-title wow rubberBand animated "
+									data-wow-duration="1000ms">
+									DESCRIPTION:
+									<p><?php echo $r->description;?></p>
+									PRICE:
+									<p>$<?php echo $r->price;?></p>
+									ROUND:
+									<p><?php echo $r->round;?></p>
+								</div>
 
-							<ul class="text-center">
-								<li><a href="#" class="">Buy</a></li>
-								<li><a href="#" class="">Cart</a></li>
-							</ul>
-						</div>
+								<div class="work-filter1 wow fadeInUp animated"
+									data-wow-duration="500ms">
+									<button type="button" class="btn">
+										size table
+									</button>
+									<button type="button" data-toggle="dropdown"
+										class="btn dropdown-toggle">
+										size<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#">XS</a></li>
+										<li><a href="#">S</a></li>
+										<li><a href="#">M</a></li>
+										<li><a href="#">L</a></li>
+										<li><a href="#">XL</a></li>
+										<li><a href="#">XXL</a></li>
+										<li><a href="#">XXXL</a></li>
+										<li class="divider"></li>
+										<li><a href="#">XXXXL</a></li>
+									</ul>
+									
+								</div>
 
+							</div>
+							<div class="col-md-3">
+								<div class="sec-sub-title wow rubberBand animated "
+									data-wow-duration="1000ms">
+									NUMBER:
+									<input type="text" name="number" id="number"
+									value="1" placeholder="number"
+									class="form-control">
+									<br/><b>5</b> more left.
+	
+								</div>
+								
+								<div class="work-filter1 wow fadeInUp animated"
+									data-wow-duration="500ms">
+
+									<ul class="text-center">
+										<li><a href="#" class="">Buy</a></li>
+										<li><a href="#" class="">Cart</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
 						<div class="row number-counters">
 							<!-- split -->
 							<div id="time_countdown" class="time-count-container">
@@ -341,7 +380,11 @@ $(document).ready(function(){
 						<i class="fa fa-heart-o fa-lg"></i>
 					</div>
 				</div>
-
+				<div class="sec-sub-title text-center wow rubberBand animated"
+					data-wow-duration="1000ms">
+					<p>You'd better know...</p>
+				</div>
+				
 				<!-- service item -->
 				<div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
 					<div class="service-item">
@@ -439,7 +482,9 @@ $(document).ready(function(){
 					<div class="sec-sub-title text-center wow rubberBand animated"
 						data-wow-duration="1000ms">
 						<div class="input-field">
-							<div class="project_comment"><nav id="project_comment"></nav></div>
+							<div class="project_comment">
+								<nav id="project_comment"></nav>
+							</div>
 						</div>
 					</div>
 

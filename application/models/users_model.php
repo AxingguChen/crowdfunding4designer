@@ -1,14 +1,19 @@
 <?php
+/**
+ * model for users table
+ *
+ */
+
+
 class Users_model extends CI_Model {
 	
 	
 	
 	/**
 	 * select * from users
-	 * return match user
 	 *
 	 * @access public
-	 * @return match user
+	 * @return all users
 	 */
 	function get_all() {
 		// $this -> db -> select('*');
