@@ -9,13 +9,15 @@ class Projects extends CI_Controller
 	public function __construct()
 	{
 	  parent::__construct();
+	  $this->load->model('projects_model');
 	}
 	
 	//access
 	//index.php/projects
 	public function index()
 	{
-		$this->load->model('projects_model');		
+		//load in constrcution
+		//$this->load->model('projects_model');		
 		$data['rows'] = $this->projects_model->get_all();
 		$this->load->view('projects_view', $data);
 	}
@@ -24,7 +26,8 @@ class Projects extends CI_Controller
 	//index.php/projects/projects_check
 	public function projects_check()
 	{
-		$this->load->model('projects_model');
+		//load in constrcution
+		//$this->load->model('projects_model');	
 		$data['rows'] = $this->projects_model->get_all();
 		$this->load->view('projects_check_view', $data);
 	}
@@ -35,7 +38,8 @@ class Projects extends CI_Controller
 	{
 		if ($projects_id > 0)
 		{
-			$this->load->model('projects_model');
+			//load in constrcution
+			//$this->load->model('projects_model');	
 			$data['rows'] = $this->projects_model->get_by_id($projects_id);
 		}
 		else
@@ -56,7 +60,8 @@ class Projects extends CI_Controller
 		$tmparray = $this->input->post(NULL, TRUE);
 		$tmparray['projects_id'] = $projects_id;		
 		//update db
-		$this->load->model('projects_model');
+		//load in constrcution
+		//$this->load->model('projects_model');	
 		$ret = $this->projects_model->update_project($projects_id, $tmparray);
 		if ($ret >= 0)
 		{
@@ -90,7 +95,8 @@ class Projects extends CI_Controller
 	{
 		if ($projects_id > 0)
 		{
-			$this->load->model('projects_model');		
+			//load in constrcution
+			//$this->load->model('projects_model');		
 			$data['rows'] = $this->projects_model->get_by_id($projects_id);
 		}
 		else
@@ -130,22 +136,26 @@ class Projects extends CI_Controller
 	{
 		if ($search_flag == $this->SEARCH_ALL)
 		{
-			$this->load->model('projects_model');
+			//load in constrcution
+			//$this->load->model('projects_model');	
 			$data['rows'] = $this->projects_model->get_all();
 		}
 		else if ($search_flag == $this->SEARCH_BY_TITLE)
 		{
-			$this->load->model('projects_model');		
+			//load in constrcution
+			//$this->load->model('projects_model');			
 			$data['rows'] = $this->projects_model->get_by_project_title($search_conent);
 		}
 		else if ($search_flag == $this->SEARCH_BY_CLOTHER_TYPE_ID)
 		{
-			$this->load->model('projects_model');		
+			//load in constrcution
+			//$this->load->model('projects_model');			
 			$data['rows'] = $this->projects_model->get_by_clothes_type_id($search_conent);
 		}
 		else if ($search_flag == $this->SEARCH_BY_CLOTHER_STYLE_ID)
 		{
-			$this->load->model('projects_model');
+			//load in constrcution
+			//$this->load->model('projects_model');	
 			$data['rows'] = $this->projects_model->get_by_clothes_style_id($search_conent);
 		}
 		else
@@ -168,7 +178,8 @@ class Projects extends CI_Controller
 		{
 			if (!$this->input->post(NULL, TRUE))
 			{
-				$this->load->model('projects_model');		
+				//load in constrcution
+				//$this->load->model('projects_model');			
 				//print_r($projects_id);
 				$tmpdata = $this->projects_model->get_by_id($projects_id);
 				if (count($tmpdata) > 0)
@@ -212,7 +223,8 @@ class Projects extends CI_Controller
 					$data['rows'][0] = $tmparray;
 								
 					//update db
-					$this->load->model('projects_model');
+					//load in constrcution
+					//$this->load->model('projects_model');	
 					$ret = $this->projects_model->update_project($projects_id, $tmparray);
 					if ($ret >= 0)
 					{
@@ -231,40 +243,6 @@ class Projects extends CI_Controller
 		}
 	}
 	
-	//projects/upload/1
-	public function upload($projects_id)
-	{
-		$file_name =  $projects_id.'.pdf';
-		
-		
-		$config['file_name'] = $file_name;
-		$config['upload_path'] = './assets/test';
-		$config['allowed_types'] = 'gif|jpg|png|txt|pdf';
-		$config['max_size']	= '1000';
-		//$config['max_width']  = '1024';
-		//$config['max_height']  = '768';
-		$config['overwrite'] = true;
-
-		$this->load->library('upload', $config);
-
-		if ( ! $this->upload->do_upload())
-		{
-			$error = array('error' => $this->upload->display_errors());
-
-			$this->load->view('upload_view', $error);
-		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-
-			$this->load->view('upload_success', $data);
-		}
-	
-		$tmparray['technical_drawing'] = './assets/img/project/'.$projects_id.'.pdf';
-		//update db
-		$this->load->model('projects_model');
-		$ret = $this->projects_model->update_project($projects_id, $tmparray);
-	}
 	
 	//access
 	//index.php/projects/create/

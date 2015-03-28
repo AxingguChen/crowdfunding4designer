@@ -315,123 +315,52 @@
 
 		</section>
 		
-        <!--
-        End info
+<!--
+        Our Works
         ==================================== -->
-				
-		<section id="purchased" class="features">
-			<div class="container">
-				<div class="row">
-				
-					<div class="sec-title text-center">
-						<h2>Purchased Projects</h2>
-						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+
+	<section id="upload" class="works clearfix">
+		<div class="container">
+			<div class="row">
+
+				<div class="sec-title text-center">
+					<h2>Update File</h2>
+					<div class="devider">
+						<i class="fa fa-heart-o fa-lg"></i>
 					</div>
-					
-					<div class="sec-sub-title text-center">
-						<p>These are projects you have purchased</p>
-					</div>
-					
-					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
-						<ul class="text-center">
-							<li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
-							<li><a href="javascript:;" data-filter=".style1" class="filter">style1</a></li>
-							<li><a href="javascript:;" data-filter=".style2" class="filter">style2</a></li>
-							<li><a href="javascript:;" data-filter=".style3" class="filter">style3</a></li>
-							<li><a href="javascript:;" data-filter=".style4" class="filter">style4</a></li>
-							<li><a href="javascript:;" data-filter="" class="filter">More</a></li>
-							
-						</ul>
-					</div>
-					
 				</div>
+
+				<div class="sec-sub-title text-center">
+					<p>We are recommened the most popular projects with different style
+						as follow.</p>
+				</div>
+
+				<!-- file submit -->
+				<?php $attributes = array('class' => 'technical_drawing', 'id' => 'technical_drawing_file');?>
+				<?php echo form_open_multipart('upload/upload_certificate_file',$attributes);?>
+				<input type="file" name="userfile" size="20" /> <br />
+				<br /> <input type="submit" value="upload" />
+
+				</form>
+				<!-- end submit button -->
+
+				<!-- end file submit  -->
+
+
+
 			</div>
-			
-			<div class="project-wrapper">
-			
-				<figure class="mix work-item style1">
-					<img src="<?php echo base_url();?>assets/img/project/item-1.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-1.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Old fashion sweater</h4>
-						<p>State: Complete & Delivered</p>
-					</figcaption>
-				</figure>
-				
-				<figure class="mix work-item style2">
-					<img src="<?php echo base_url();?>assets/img/project/sweater.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="#"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Sweater </h4>
-						<p>State: Funding 75%</p>
-					</figcaption>
-				</figure>
-				
-				<figure class="mix work-item style3">
-					<img src="<?php echo base_url();?>assets/img/project/item-3.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-3.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Labore et dolore magnam</h4>
-						<p>Photography</p>
-					</figcaption>
-				</figure>
-				
-				<figure class="mix work-item style4">
-					<img src="<?php echo base_url();?>assets/img/project/item-4.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-4.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Labore et dolore magnam</h4>
-						<p>Photography</p>
-					</figcaption>
-				</figure>
-			
-				<figure class="mix work-item style1">
-					<img src="<?php echo base_url();?>assets/img/project/item-5.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-5.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Labore et dolore magnam</h4>
-						<p>Photography</p>
-					</figcaption>
-				</figure>
-				
-				<figure class="mix work-item style2">
-					<img src="<?php echo base_url();?>assets/img/project/item-6.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-6.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Labore et dolore magnam</h4>
-						<p>Photography</p>
-					</figcaption>
-				</figure>
-				
-				<figure class="mix work-item style3">
-					<img src="<?php echo base_url();?>assets/img/project/item-7.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-7.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Labore et dolore magnam</h4>
-						<p>Photography</p>
-					</figcaption>
-				</figure>
-				
-				<figure class="mix work-item style4">
-					<img src="<?php echo base_url();?>assets/img/project/item-8.jpg" alt="">
-					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/project/item-8.jpg"><i class="fa fa-eye fa-lg"></i></a>
-						<h4>Labore et dolore magnam</h4>
-						<p>Photography</p>
-					</figcaption>
-				</figure>
-				
-				
-			</div>
-			<div class="sec-sub-title text-center">
-				<p>button (ajax) loading more</p>
-			</div>
-			
-		</section>
-		
-        <!--
-        End woman clothes
+		</div>
+
+
+
+
+
+	</section>
+
+	<!--
+        End Our Works
         ==================================== -->
+
 
 		
         <!--

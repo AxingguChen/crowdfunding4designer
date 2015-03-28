@@ -380,7 +380,7 @@ if (xmlhttp1.readyState==4)
 				<!-- end service item -->
 
 			</div>
-			<!-- contact form -->
+			<!-- submit button -->
 			<div class="text-center wow fadeInDown  text-center animated"
 				data-wow-duration="500ms" data-wow-delay="300ms">
 				<div class="contact-form">
@@ -388,16 +388,15 @@ if (xmlhttp1.readyState==4)
 						<input type="submit" id="form-submit" class="pull-right"
 							value="Update project">
 					</div>
-								
-						</dFiv>
 				</div>
-				<!-- end contact form -->
 			</div>
+			<!-- submit button -->
+		</div>
 			<?php echo form_close(); ?>
 			<div class="sec-sub-title text-center wow rubberBand animated"
-					data-wow-duration="1000ms">
-					<p><?php if(isset($exc_flag) && $exc_flag == 1) echo "Update Succeed";?></p>
-			</div>
+			data-wow-duration="1000ms">
+			<p><?php if(isset($exc_flag) && $exc_flag == 1) echo "Update Succeed";?></p>
+		</div>
 	</section>
 
 	<!--
@@ -425,20 +424,16 @@ if (xmlhttp1.readyState==4)
 						as follow.</p>
 				</div>
 
-				<!-- contact address -->
-				<div class="sec-sub-title text-center">
-					<h3>upload</h3>
-					<p>upload file here</p>
+				<!-- file submit -->
+				<?php $attributes = array('class' => 'technical_drawing', 'id' => 'technical_drawing_file');?>
+				<?php echo form_open_multipart('upload/upload_technical_drawing/'.$r['projects_id'],$attributes);?>
+				<input type="file" name="userfile" size="20" /> <br />
+				<br /> <input type="submit" value="upload" />
 
-					<?php //echo $error;?>
-					<?php echo form_open_multipart('projects/upload/1');?>
-					<input type="file" name="technical_drawing" size="20" /> 
-					<br /> <br />
-					<input type="submit" value="upload" />
-					</form>
+				</form>
+				<!-- end submit button -->
 
-				</div>
-				<!-- end contact address -->
+				<!-- end file submit  -->
 
 
 

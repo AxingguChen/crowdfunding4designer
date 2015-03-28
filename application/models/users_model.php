@@ -128,7 +128,7 @@ class Users_model extends CI_Model {
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
+			// 
 			return -1;
 		}
 		else
