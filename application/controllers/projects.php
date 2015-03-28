@@ -176,7 +176,7 @@ class Projects extends CI_Controller
 	{
 		if ($limit <= 0)
 		{
-			$MAX_RECORDS = 3;/* each request return 8 records at most */
+			$MAX_RECORDS = 8;/* each request return 8 records at most */
 		}
 		else
 		{
