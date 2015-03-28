@@ -490,9 +490,17 @@ $(document).ready(function(){
 
 					<div class="contact-form">
 						<h3>Leave a comment</h3>
-						<form action="#" id="contact-form">
+						<!--<form action="#" id="contact-form">-->
+<!-- this is for test -->
+<?php echo validation_errors(); ?>
 
-
+<?php echo form_open('projects/post'); ?>
+<h5>Comment Test</h5>
+<input type="text" name="projects_id" value="1<!-- put the projects_id here, value 1 just for testing -->" size="50" />
+<input type="text" name="comment" value="" size="50" />
+<div><input type="submit" value="Submit" /></div>
+</form>
+<!--
 							<div class="input-group">
 								<textarea name="message" id="message" placeholder="Message"
 									class="form-control"></textarea>
@@ -502,6 +510,7 @@ $(document).ready(function(){
 									value="Comment">
 							</div>
 						</form>
+						-->
 					</div>
 				</div>
 				<!-- end contact form -->

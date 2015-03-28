@@ -80,12 +80,10 @@ class Projects_model extends CI_Model
 		{
 			return -1;
 		}
-
 		$this->db->select('*');
 		$this->db->from($this->TABLENAME);
 		$this->db->join('clothes_type', "clothes_type.clothes_type_id = $this->TABLENAME.projects_clothes_type_id");
 		$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
-		//$this->db->like('clothes_type.name', $clothes_type); 	
 		$this->db->where('clothes_type.clothes_type_id', $clothes_type_id); 	
 		if (strlen($order) > 0)
 		{
@@ -159,6 +157,48 @@ class Projects_model extends CI_Model
 	}
 	
 	/**
+	 * Get records of projects which match 
+	 * serveral condition that give by $data
+	 *
+	 * @access public
+	 * @param array $data
+	 * @param integer $offset
+	 * @param integer $limit
+	 * @param string $order
+	 * @param string $direction
+	 * @return array records
+	 */
+	public function get_by_serveral_condition_exact($data, $offset = 0, $limit = 0,
+	   	$order = 'publish_date', $direction = 'desc')
+	{
+		if (count($data) <= 0)
+		{
+			return -1;
+		}
+
+		$this->db->select('*');
+		$this->db->from($this->TABLENAME);
+		$this->db->join('clothes_type', "clothes_type.clothes_type_id = $this->TABLENAME.projects_clothes_type_id");
+		$this->db->join('users', "users.users_id = $this->TABLENAME.projects_users_id");
+		foreach ($data as $filed => $value)
+		{
+			$this->db->where($filed, $value); 	
+		}
+
+		if (strlen($order) > 0)
+		{
+			$this->db->order_by($order, $direction); 	
+		}
+		if ($limit > 0)
+		{
+			$this->db->limit($limit, $offset);
+		}
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
+	/**
 	 * Get a record of projects which id  
 	 * is $id
 	 *
@@ -223,7 +263,6 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
@@ -251,7 +290,6 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
@@ -277,7 +315,6 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
@@ -305,7 +342,6 @@ class Projects_model extends CI_Model
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE)
 		{
-			// 鐢熸垚涓�鏉￠敊璇俊鎭�... 鎴栬�呬娇鐢� log_message() 鍑芥暟鏉ヨ褰曚綘鐨勯敊璇俊鎭�
 			return -1;
 		}
 		else
