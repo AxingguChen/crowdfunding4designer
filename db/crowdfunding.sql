@@ -10,10 +10,38 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-03-27 11:41:14
+Date: 2015-03-28 10:46:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for acl
+-- ----------------------------
+DROP TABLE IF EXISTS `acl`;
+CREATE TABLE `acl` (
+  `acl_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `acl_groups_id` int(10) unsigned NOT NULL,
+  `acl_view` bit(1) DEFAULT b'1',
+  `acl_update_profile` bit(1) DEFAULT b'1',
+  `acl_view_profile` bit(1) DEFAULT b'1',
+  `acl_create_project` bit(1) DEFAULT b'0',
+  `acl_update_project` bit(1) DEFAULT b'0',
+  `acl_update_check` bit(1) DEFAULT b'0',
+  `acl_update_acl` bit(1) DEFAULT b'0',
+  PRIMARY KEY (`acl_id`),
+  KEY `acl_groups_fk` (`acl_groups_id`),
+  CONSTRAINT `acl_groups_fk` FOREIGN KEY (`acl_groups_id`) REFERENCES `groups` (`groups_id`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of acl
+-- ----------------------------
+INSERT INTO `acl` VALUES ('1', '1', '', '', '', '', '', '', '');
+INSERT INTO `acl` VALUES ('2', '3', '', '', '', '', '', '', '\0');
+INSERT INTO `acl` VALUES ('3', '10', '', '', '', '', '', '\0', '\0');
+INSERT INTO `acl` VALUES ('4', '12', '', '', '', '\0', '\0', '\0', '\0');
+INSERT INTO `acl` VALUES ('5', '15', '', '\0', '\0', '\0', '\0', '\0', '\0');
 
 -- ----------------------------
 -- Table structure for clothes_size

@@ -1,8 +1,25 @@
 <?php
 class Users extends CI_Controller {
+
+	//anyone
+	//view pages
+	private $ACL_VIEW = 'acl_view';
+	//checker designer user
+	//view personal profile and update profile
+	private $ACL_VIEW_PROFILE = 'acl_view_profile';
+	private $ACL_UPDATE_PROFILE = 'acl_update_profile';
+	//checker deisgner
+	//create project and update self project
+	private $ACL_CREATE_PROJECT = 'acl_create_project';
+	private $ACL_UPDATE_PROJECT = 'acl_update_project';
+	//checker
+	//check the user application to designer and pending projects
+	private $ACL_UPDATE_CHECK = 'acl_update_check';
+	
 	function __construct() {
 		parent::__construct ();
 		$this->load->model ( 'users_model', '', TRUE );
+		$this->load->model ( 'acl_model', '', TRUE );
 	}
 	
 	// access
@@ -83,5 +100,18 @@ class Users extends CI_Controller {
 		$data ['rows'] = $this->users_model->getById ( $users_id );
 		$this->load->view ( 'user_check_view', $data );
 	}
+	
+	//test
+	function test($user_id)
+	{		
+	
+		$test['authority'] = $this->ACL_UPDATE_PROJECT;	
+		//how to use acl
+		$data = $this->acl_model->acl($user_id,$this->ACL_UPDATE_PROJECT);
+		print_r($data);
+		if($data)$test['test']='true';else $test['test']='false';
+		print_r($test);
+	}
+	
 }
 ?>
