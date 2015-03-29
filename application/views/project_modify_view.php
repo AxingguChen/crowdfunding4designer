@@ -172,8 +172,8 @@ if (xmlhttp1.readyState==4)
 			</div>
 
 			<?php echo validation_errors(); ?>
-			<?php if(isset($rows))$r = $rows[0]; ?>
-			<?php $projects_id = $r['projects_id']; echo form_open("projects/modify/$projects_id"); ?>
+			<?php foreach ($rows as $r){?>
+			<?php echo form_open("projects/modify/$r->projects_id"); ?>
 			
 			<!-- main nav -->
 			<nav class="collapse navbar-collapse navbar-right" role="navigation">
@@ -185,11 +185,10 @@ if (xmlhttp1.readyState==4)
 				</ul>
 
 				<ul id="nav1" class="nav navbar-nav">
-					<li class="current"><a href="/index.php/users/user_profile">profile</a></li>
-					<li><a href="/index.php/projects/create">Create</a></li>
-					<li class="current"><a
-						href="/index.php/projects/project/<?php echo $r['projects_id']; ?>">project</a></li>
-					<li class="current"><a href="/index.php/verification/logout">Logout</a></li>
+					<li><a href="<?php echo base_url();?>index.php/users/user_profile">profile</a></li>
+					<li><a href="<?php echo base_url();?>index.php/projects/create">Create</a></li>
+					<li><a href="<?php echo base_url();?>index.php/projects/project/<?php echo $r->projects_id; ?>">project</a></li>
+					<li><a href="<?php echo base_url();?>index.php/verification/logout">Logout</a></li>
 				</ul>
 			</nav>
 			<!-- /main nav -->
@@ -238,13 +237,13 @@ if (xmlhttp1.readyState==4)
 							<div class="input-text-field col-md-1">Title:</div>
 							<div class="input-field col-md-5">
 								<input type="text" name="title" id="title"
-									value="<?php echo $r['title']; ?>" placeholder="@title"
+									value="<?php echo $r->title; ?>" placeholder="title"
 									class="form-control">
 							</div>
 							<div class="input-text-field col-md-1">Email:</div>
 							<div class="input-field col-md-5">
 								<input type="text" name="contact_email" id="contact_email"
-									value="<?php echo $r['contact_email']; ?>" placeholder="@email"
+									value="<?php echo $r->contact_email; ?>" placeholder="email"
 									class="form-control">
 							</div>
 
@@ -255,8 +254,8 @@ if (xmlhttp1.readyState==4)
 							<div class="input-text-field col-md-1">Type:</div>
 							<div class="input-field col-md-5">
 								<script type="text/javascript">
-									loadXMLDoc("<?php echo base_url();?>"+ "index.php/clothes_type/index/" + <?php echo $r['projects_clothes_type_id'] ?>);
-									loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style/index/" + <?php echo $r['projects_clothes_style_id'] ?>);
+									loadXMLDoc("<?php echo base_url();?>"+ "index.php/clothes_type/index/" + <?php echo $r->projects_clothes_type_id ?>);
+									loadXMLDoc1("<?php echo base_url();?>"+ "index.php/clothes_style/index/" + <?php echo $r->projects_clothes_style_id ?>);
 								</script>
 								<div id="type_id"></div>
 							</div>
@@ -275,7 +274,7 @@ if (xmlhttp1.readyState==4)
 							<div class="input-text-field col-md-1">Sex:</div>
 							<div class="input-field col-md-5">
 								<input type="text" name="sex" id="sex"
-									value="<?php echo $r['sex']; ?>" placeholder="@sex"
+									value="<?php echo $r->sex; ?>" placeholder="sex"
 									class="form-control">
 							</div>
 
@@ -285,7 +284,7 @@ if (xmlhttp1.readyState==4)
 							<div class="col-md-1">Description:</div>
 							<div class="col-md-10">
 								<textarea name="description" id="description"
-									placeholder="Description" class="form-control"><?php echo $r['description']; ?></textarea>
+									placeholder="Description" class="form-control"><?php echo $r->description; ?></textarea>
 							</div>
 						</div>
 
@@ -334,7 +333,7 @@ if (xmlhttp1.readyState==4)
 							<h3>Made Of</h3>
 							<p>
 								<input type="text" name="madeof" id="madeof"
-									value="<?php echo $r['madeof']; ?>" placeholder="madeof"
+									value="<?php echo $r->madeof; ?>" placeholder="madeof"
 									class="form-control">
 							</p>
 						</div>
@@ -354,7 +353,7 @@ if (xmlhttp1.readyState==4)
 							<h3>How To Wash</h3>
 							<p>
 								<input type="text" name="howtowash" id="howtowash"
-									placeholder="howtowash" value="<?php echo $r['howtowash']; ?>"
+									placeholder="howtowash" value="<?php echo $r->howtowash; ?>"
 									class="form-control">
 							</p>
 						</div>
@@ -373,7 +372,7 @@ if (xmlhttp1.readyState==4)
 						<div class="service-desc">
 							<h3>Why Me</h3>
 							<input type="text" name="whyme" id="whyme" placeholder="whyme"
-								value="<?php echo $r['whyme']; ?>" class="form-control">
+								value="<?php echo $r->whyme; ?>" class="form-control">
 						</div>
 					</div>
 				</div>
@@ -423,13 +422,14 @@ if (xmlhttp1.readyState==4)
 					<p>We are recommened the most popular projects with different style
 						as follow.</p>
 				</div>
-
+				
+				<?php if(isset($error)) echo $error;?>
 				<!-- file submit -->
-				<?php $attributes = array('class' => 'technical_drawing', 'id' => 'technical_drawing_file');?>
-				<?php echo form_open_multipart('upload/upload_technical_drawing/'.$r['projects_id'],$attributes);?>
-				<input type="file" name="userfile" size="20" /> <br />
+				<?php $attributes = array('class' => 'technical_drawing', 'id' => 'technical_drawing');?>
+				<?php echo form_open_multipart('upload/upload_technical_drawing/'.$r->projects_id,$attributes);?>
+				<input type="file" name="technical_drawing" size="20" /> <br />
 				<br /> <input type="submit" value="upload" />
-
+				<?php if(isset($upload_flag) && $upload_flag == 1) echo "Update Succeed";?>
 				</form>
 				<!-- end submit button -->
 
@@ -449,8 +449,8 @@ if (xmlhttp1.readyState==4)
 	<!--
         End Our Works
         ==================================== -->
-
-
+	<!-- end of foreach -->
+		<?php } ?>
 
 	<footer id="footer" class="footer">
 		<div class="container">

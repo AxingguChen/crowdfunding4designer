@@ -170,6 +170,7 @@ class Projects extends CI_Controller
 		
 	}
 
+	//when update the data to succeed page is from db but not from post
 	//access
 	//index.php/projects/modify/1
 	public function modify($projects_id = 0)
@@ -194,6 +195,7 @@ class Projects extends CI_Controller
 				{
 					$data = array();
 				}
+				$data ['rows'] = $this->projects_model->get_by_id($projects_id);
 				$this->load->view('project_modify_view', $data);
 			}
 			else
@@ -208,8 +210,11 @@ class Projects extends CI_Controller
 				{
 					$tmparray = $this->input->post(NULL, TRUE);
 					$tmparray['projects_id'] = $projects_id;
-					
-					$data['rows'][0] = $tmparray;
+
+					//data from db rather than from post
+// 					$data['rows'][0] = $tmparray;
+// 					$this->load->view('project_modify_view', $data);
+					$data ['rows'] = $this->projects_model->get_by_id ( $projects_id );
 					$this->load->view('project_modify_view', $data);
 					
 					
@@ -220,12 +225,14 @@ class Projects extends CI_Controller
 					//get data from input	
 					$tmparray = $this->input->post(NULL, TRUE);
 					$tmparray['projects_id'] = $projects_id;
-					$data['rows'][0] = $tmparray;
+					//$data['rows'][0] = $tmparray;
 								
 					//update db
 					//load in constrcution
 					//$this->load->model('projects_model');	
 					$ret = $this->projects_model->update_project($projects_id, $tmparray);
+					
+					$data ['rows'] = $this->projects_model->get_by_id ( $projects_id );
 					if ($ret >= 0)
 					{
 						$data['exc_flag'] = 1;

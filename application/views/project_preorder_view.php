@@ -105,8 +105,8 @@
 				</ul>
 
 				<ul id="nav1" class="nav navbar-nav">
-					<li class="current"><a href="homepage.html" target="_blank">Profile</a></li>
-					<li><a href="index.html">Log in</a></li>
+					<li class="current"><a href="<?php echo base_url();?>index.php/users/user_profile">profile</a></li>
+					<li class="current"><a href="<?php echo base_url();?>index.php/verification/logout">Logout</a></li>
 				</ul>
 			</nav>
 			<!-- /main nav -->

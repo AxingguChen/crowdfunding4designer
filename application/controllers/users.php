@@ -101,48 +101,13 @@ class Users extends CI_Controller {
 		$this->load->view ( 'user_check_view', $data );
 	}
 	
-	//access
-	//projects/upload
-	public function upload()
-	{
-		//$this->load->helper(array('form', 'url'));
-		$session_data = $this->session->userdata ( 'logged_in' );
-		$users_id = $session_data['id'];
-		$file_name =  $users_id.'.pdf';
-		$config['file_name'] = $file_name;
-		$config['upload_path'] = './assets/certificate';
-		$config['allowed_types'] = 'gif|jpg|png|txt|pdf';
-		$config['max_size']	= '1024'; //kb
-		//$config['max_width']  = '1024';//image width
-		//$config['max_height']  = '768';//image heigth
-		$config['overwrite'] = true;
 	
-		$this->load->library('upload', $config);
-	
-		if ( ! $this->upload->do_upload('certificate_file'))
-		{
-			$error = array('error' => $this->upload->display_errors());
-	
-			$this->load->view('upload_view', $error);
-		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-			$this->load->view('upload_success', $data);
-			//update db
-			$tmparray['technical_drawing'] = 'img/certificate/'.$users_id.'.pdf';
-			$ret = $this->users_model->update_profile($users_id, $tmparray);
-		}
-	
-	
-	}
-	
-	//test
+	//acl test
 	function test($user_id)
 	{		
 	
 		$test['authority'] = $this->ACL_UPDATE_PROJECT;	
-		//how to use acl
+		//how to use acl, if allowed, the $data will get true.
 		$data = $this->acl_model->acl($user_id,$this->ACL_UPDATE_PROJECT);
 		print_r($data);
 		if($data)$test['test']='true';else $test['test']='false';
