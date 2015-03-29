@@ -57,22 +57,25 @@
  $(function() {
 	    $('#upload_file').submit(function(e) {
 	        e.preventDefault();
+	        var url=$(this).attr("action");
 	        $.ajaxFileUpload({
-	            url             :"<?php echo base_url();?>index.php/upload/upload_ajax", 
+	            url             :url, 
 	            secureuri       :false,
-	            fileElementId   :'userfile',
+	            fileElementId   :'certificate_file',
 	            dataType: 'JSON',
 	            success : function (data)
 	            {
-	               var obj = jQuery.parseJSON(data);                
-	                if(obj['status'] == 'success')
-	                {
-	                    $('#files').html(obj['msg']);
-	                 }
-	                else
-	                 {
-	                    $('#files').html(obj['msg']);
-	                  }
+// 	               var obj = jQuery.parseJSON(data);                
+// 	                if(obj['status'] == 'success')
+// 	                {
+// 	                    //$('#upload_result').html(obj['msg']);
+// 	                    document.getElementById('upload_result').innerHTML =obj['msg'];
+// 	                 }
+// 	                else
+// 	                 {
+// 	                    $('#upload_result').html(obj['msg']);
+// 	                  }
+	            	$('#upload_result').html(data);
 	            }
 	        });
 	        return false;
@@ -420,63 +423,11 @@
 						as follow.</p>
 				</div>
 				
-				<?php if(isset($error)) echo $error;?>
-				<!-- file submit -->
-				<?php //$attributes = array('class' => 'certificate_file', 'id' => 'certificate_file');?>
-				<?php //echo form_open_multipart('upload/upload_certificate_file',$attributes);?>
-				<form method="post" action="" id="certificate_file_form"
-					enctype="multipart/form-data">
-					<input type="file" id='certificate_file' name="certificate_file"
-						size="20" /> <br /> <br /> <input type="submit" value="upload" />
+				<form method="post" action="<?php echo base_url();?>index.php/upload/certificate_file" id="upload_file">
+					<input type="file" name=certificate_file id="certificate_file" size="20" /> 
+					<input type="submit" name="submit" id="submit" />
 				</form>
 				<div id="upload_result"></div>
-				<?php if(isset($upload_flag) && $upload_flag == 1) echo "Update Succeed";?>
-				<!-- end submit button -->
-
-				<!-- end file submit  -->
-
-
-
-			</div>
-		</div>
-
-
-
-
-
-	</section>
-
-	<!--
-        End Our Works
-        ==================================== -->
-	<!--
-        Our Works
-        ==================================== -->
-
-	<section id="upload" class="works clearfix">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center">
-					<h2>Update File</h2>
-					<div class="devider">
-						<i class="fa fa-heart-o fa-lg"></i>
-					</div>
-				</div>
-
-				<div class="sec-sub-title text-center">
-					<p>We are recommened the most popular projects with different style
-						as follow.</p>
-				</div>
-
-				<h1>Upload File</h1>
-				<form method="post" action="" id="upload_file">
-					<label for="userfile">File</label> <input type="file"
-						name="userfile" id="userfile" size="20" /> <input type="submit"
-						name="submit" id="submit" />
-				</form>
-				<h2>Files</h2>
-				<div id="files"></div>
 				<!-- end file submit  -->
 
 
@@ -494,10 +445,6 @@
         End Our Works
         ==================================== -->
 
-
-	<!--
-        End Contact Us
-        ==================================== -->
 
 
 	<footer id="footer" class="footer">
@@ -572,7 +519,6 @@
 	<!-- Essential jQuery Plugins
 		================================================== -->
 	<!-- Main jQuery -->
-	<script src="<?php echo base_url();?>assets/js/jquery-1.11.1.min.js"></script>
 	<!-- Single Page Nav -->
 	<script
 		src="<?php echo base_url();?>assets/js/jquery.singlePageNav.min.js"></script>
